@@ -4,10 +4,10 @@ Private F4 prototype for creator review. It contains original Flaxx design, copy
 
 ## Run locally
 
-Serve the `dist/` directory with any static web server.
+Use Node 20 or later and run `npm start`. The storefront is at `/`; the private Operator Office is at `/office/`; the governed API is under `/api/`. For local Formation review, set `FLAXX_DEV_MODE=1`. See `backend/README.md` for access and production-replacement requirements.
 
 ## Important status
 
-No product is released or for sale. Checkout and interest collection do not transmit data. Prices, evidence, source, fit, policies, inventory, and delivery remain Formation gates.
+No product is released or for sale. The backend deliberately returns no public products while commerce is blocked. Checkout and interest collection do not transmit data. Prices, evidence, source, fit, policies, inventory, delivery, managed identity, infrastructure and integrations remain Formation gates.
 
-Aeonik is specified first in the CSS font stack. Licensed webfont files are not included and must be added before exact public rendering can be guaranteed.
+The Creator-supplied Aeonik files are embedded for consistent private-preview rendering. Public-webfont licensing must be confirmed before activation.

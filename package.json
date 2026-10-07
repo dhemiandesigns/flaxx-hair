@@ -1,0 +1,12 @@
+{
+  "name": "flaxx-garden",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node backend/server.mjs",
+    "test": "node --test backend/tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

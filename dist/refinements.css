@@ -1,0 +1,351 @@
+@font-face {
+  font-family: "Aeonik";
+  src: url("assets/fonts/Aeonik-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("assets/fonts/Aeonik-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("assets/fonts/Aeonik-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+.nav-actions img {
+  width: 22px;
+  height: 22px;
+  display: block;
+  filter: invert(1);
+  transition: filter .2s;
+}
+
+.nav-row:hover .nav-actions img,
+.nav-row:focus-within .nav-actions img {
+  filter: none;
+}
+
+.search-button img {
+  width: 19px;
+  height: 19px;
+}
+
+.line-icon {
+  line-height: 1;
+  padding: 0 !important;
+  position: relative;
+}
+
+.deal-star {
+  font-size: 15px;
+  line-height: 1;
+  padding: 18px 1px !important;
+}
+
+.hero-copy {
+  left: 6.5%;
+  right: auto;
+  bottom: 8%;
+  width: min(600px, 87%);
+  text-align: left;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .65s ease, visibility .65s ease;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hero-slide > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 44%;
+}
+
+.hero-slide > img.split-image {
+  right: auto;
+  width: 200%;
+  max-width: none;
+  object-position: left center;
+}
+
+.hero-controls {
+  position: absolute;
+  z-index: 4;
+  right: 3.45vw;
+  bottom: 4.2%;
+  display: flex;
+  gap: 8px;
+}
+
+.hero-controls button {
+  width: 28px;
+  height: 2px;
+  border: 0;
+  background: rgba(255,255,255,.45);
+  padding: 0;
+  cursor: pointer;
+  transition: background .2s, width .2s;
+}
+
+.hero-controls button.active {
+  width: 46px;
+  background: #fff;
+}
+
+.hero-copy h1 {
+  font-size: clamp(3.8rem, 5.7vw, 5.35rem);
+  font-weight: 300;
+  letter-spacing: -.05em;
+  line-height: .94;
+  margin-bottom: 1.5rem;
+}
+
+.hero-copy p {
+  max-width: 470px;
+  margin: 0 0 2.25rem;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.product-media {
+  background: #f3f1ed;
+  transition: box-shadow .3s ease, transform .3s ease;
+}
+
+.product-media .card-shot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity .38s ease, transform .55s ease;
+}
+
+.lifestyle-shot {
+  opacity: 1;
+}
+
+.product-shot {
+  opacity: 0;
+}
+
+.product-card:hover .product-media,
+.product-card:focus-visible .product-media {
+  box-shadow: 0 12px 28px rgba(28,22,20,.13);
+  transform: translateY(-2px);
+}
+
+.product-card:hover .lifestyle-shot,
+.product-card:focus-visible .lifestyle-shot {
+  opacity: 0;
+  transform: none;
+}
+
+.product-card:hover .product-shot,
+.product-card:focus-visible .product-shot {
+  opacity: 1;
+  transform: scale(1.01);
+}
+
+.verified-badge {
+  font-weight: 500;
+  letter-spacing: .08em;
+}
+
+.product-media .verified-badge {
+  left: auto;
+  right: 10px;
+  top: auto;
+  bottom: 10px;
+  z-index: 2;
+  border: 0;
+  border-radius: 20px;
+  background: rgba(255,255,255,.66);
+  backdrop-filter: blur(7px);
+  padding: 4px 7px;
+  font-size: 8px;
+  letter-spacing: .03em;
+  transition: opacity .2s;
+}
+
+.product-card:hover .product-media .verified-badge {
+  opacity: .45;
+}
+
+.quick-buy {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 42px 42px;
+  gap: 7px;
+  margin-top: 13px;
+}
+
+.quick-buy label {
+  position: relative;
+  border: 1px solid #c9c4be;
+  min-height: 42px;
+}
+
+.quick-buy label span {
+  position: absolute;
+  left: 9px;
+  top: 4px;
+  color: #68636a;
+  font-size: 8px;
+  letter-spacing: .04em;
+}
+
+.quick-length {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  padding: 13px 8px 2px;
+  font-size: 11px;
+  outline: none;
+}
+
+.icon-action {
+  min-height: 42px;
+  border: 1px solid #111;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.icon-action img {
+  width: 18px;
+  height: 18px;
+}
+
+.quick-add {
+  background: #111;
+}
+
+.quick-add img {
+  filter: invert(1);
+}
+
+.icon-action:hover,
+.icon-action:focus-visible,
+.quick-heart.saved {
+  background: var(--lav);
+}
+
+.quick-add:hover img,
+.quick-add:focus-visible img {
+  filter: none;
+}
+
+.decision-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 0 2.25rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.decision-facts div {
+  padding: 13px 10px 13px 0;
+}
+
+.decision-facts dt {
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.decision-facts dd {
+  margin: 0;
+  font-size: 11px;
+}
+
+.cart-thumb {
+  width: 85px;
+  height: 105px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.product-gallery-shot {
+  width: 100%;
+  height: 100%;
+  min-height: 760px;
+  background-image: url("assets/product-body-wave-studio.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 700px) {
+  .nav-actions .search-button img {
+    filter: invert(1);
+  }
+
+  .nav-row:hover .nav-actions .search-button img,
+  .nav-row:focus-within .nav-actions .search-button img {
+    filter: none;
+  }
+
+  .hero-copy {
+    left: 6%;
+    bottom: 6%;
+    text-align: left;
+  }
+
+  .hero-copy h1 {
+    font-size: 3.45rem;
+  }
+
+  .hero-copy p {
+    margin: 0 0 2rem;
+  }
+
+  .hero-slide > img {
+    object-position: 52% center;
+  }
+
+  .hero-slide > img.split-image {
+    object-position: left center;
+  }
+
+  .hero-controls {
+    right: 6%;
+    bottom: 3%;
+  }
+
+  .product-gallery-shot {
+    min-height: 500px;
+  }
+
+  .quick-buy {
+    grid-template-columns: minmax(0, 1fr) 38px 38px;
+  }
+}

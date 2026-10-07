@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Flaxx Hair — It is what it is.">
-  <title>Flaxx Hair — It Is What It Is</title>
+  <meta name="description" content="Flaxx Hair — It is what it is, exactly!">
+  <title>Flaxx Hair — It Is What It Is, Exactly!</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="refinements.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -18,36 +19,45 @@
     </div>
     <div class="nav-row" id="nav-row">
       <nav aria-label="Primary navigation">
-        <button data-route="shop">new</button>
-        <button data-route="shop">Best Sellers</button>
-        <button data-route="shop">wigs</button>
-        <button data-route="shop">extensions</button>
-        <button data-route="shop">accessories</button>
-        <span aria-hidden="true">✦</span>
+        <button data-route="shop">New</button>
+        <button data-route="shop">Best sellers</button>
+        <button data-route="shop">Wigs</button>
+        <button data-route="shop">Extensions</button>
+        <button data-route="shop">Accessories</button>
+        <button class="deal-star" data-route="shop" aria-label="Offers">✦</button>
       </nav>
       <div class="nav-actions">
-        <button class="search-button" id="search-open" aria-label="Search"><span class="search-icon"></span><span>Search</span></button>
-        <button class="line-icon" aria-label="Saved items">♡</button>
-        <button class="line-icon account-icon" aria-label="Account">♙</button>
-        <button class="line-icon bag-button" id="cart-open" aria-label="Open bag">♧<sup id="cart-count">0</sup></button>
+        <button class="search-button" id="search-open" aria-label="Search"><img src="assets/icons/search-md.svg" alt=""><span>Search</span></button>
+        <button class="line-icon" aria-label="Saved items"><img src="assets/icons/heart-rounded.svg" alt=""></button>
+        <button class="line-icon account-icon" aria-label="Account"><img src="assets/icons/user-02.svg" alt=""></button>
+        <button class="line-icon bag-button" id="cart-open" aria-label="Open bag"><img src="assets/icons/shopping-bag-02.svg" alt=""><sup id="cart-count">0</sup></button>
         <button class="menu-button" id="mobile-menu" aria-label="Open menu">☰</button>
       </div>
     </div>
     <div class="mobile-nav" id="mobile-nav" hidden>
-      <button data-route="shop">new</button><button data-route="shop">Best Sellers</button><button data-route="shop">wigs</button><button data-route="shop">extensions</button><button data-route="shop">accessories</button><button data-route="fit">Find Your Fit</button><button data-route="verify">What Verified Means</button>
+      <button data-route="shop">New</button><button data-route="shop">Best sellers</button><button data-route="shop">Wigs</button><button data-route="shop">Extensions</button><button data-route="shop">Accessories</button><button data-route="fit">Find your fit</button><button data-route="verify">What verified means</button>
     </div>
   </header>
 
   <main id="main" tabindex="-1">
     <section class="view active" data-view="home">
-      <section class="hero">
-        <img src="assets/flaxx-hero-v2.png" alt="A joyful woman with long, dark body-wave hair">
-        <div class="hero-shade"></div>
-        <div class="hero-copy">
-          <h1>It is what it is.</h1>
-          <p>Beautiful hair. Easy confidence. Made to keep up with your life.</p>
-          <button class="hero-cta" data-route="shop">shop now</button>
-        </div>
+      <section class="hero" aria-roledescription="carousel" aria-label="Featured Flaxx styles">
+        <article class="hero-slide active" data-hero-slide aria-hidden="false">
+          <img src="assets/flaxx-hero-v2.png" alt="A joyful woman moving through long, dark body-wave hair">
+          <div class="hero-shade"></div>
+          <div class="hero-copy"><h1>Good hair.<br>No second-guessing.</h1><p>Beautiful, wearable styles made for movement, confidence, and getting on with your day.</p><button class="hero-cta" data-route="shop">Shop best sellers</button></div>
+        </article>
+        <article class="hero-slide" data-hero-slide aria-hidden="true">
+          <img class="split-image" src="assets/product-everyday-straight-v2.png" alt="A woman turning as long, straight hair moves behind her">
+          <div class="hero-shade"></div>
+          <div class="hero-copy"><h1>Ready when<br>you are.</h1><p>Natural-looking hair that makes getting ready feel easy—from first fit to final look.</p><button class="hero-cta" data-route="shop">Shop straight styles</button></div>
+        </article>
+        <article class="hero-slide" data-hero-slide aria-hidden="true">
+          <img class="split-image" src="assets/product-copper-v2.png" alt="A woman in motion wearing long copper hair">
+          <div class="hero-shade"></div>
+          <div class="hero-copy"><h1>Your look.<br>Only easier.</h1><p>Find the texture, length, and finish that fits the way you want to live.</p><button class="hero-cta" data-route="fit">Find your fit</button></div>
+        </article>
+        <div class="hero-controls" aria-label="Choose featured slide"><button class="active" data-hero-dot="0" aria-label="Show slide 1"></button><button data-hero-dot="1" aria-label="Show slide 2"></button><button data-hero-dot="2" aria-label="Show slide 3"></button></div>
       </section>
 
       <section class="edit-section">
@@ -69,18 +79,19 @@
 
     <section class="view page-view" data-view="shop">
       <div class="page-title"><p>THE FLAXX EDIT</p><h1>Find your next favourite.</h1></div>
-      <div class="collection-bar"><span>4 styles</span><div><button class="active">all</button><button>wigs</button><button>extensions</button><button>care</button></div><button>filter + sort</button></div>
+      <div class="collection-bar"><span>4 styles</span><div><button class="active">All</button><button>Wigs</button><button>Extensions</button><button>Care</button></div><button>Filter + sort</button></div>
       <div class="product-grid collection-grid" id="shop-products"></div>
     </section>
 
     <section class="view page-view" data-view="product">
       <div class="product-page">
-        <div class="product-gallery"><span class="verified-badge light">SOURCE VERIFIED</span><img src="assets/flaxx-body-wave.png" alt="Body-wave closure unit displayed on a sculptural stand"></div>
+        <div class="product-gallery"><span class="verified-badge light">Source verified</span><div class="product-gallery-shot" role="img" aria-label="Body-wave wig photographed upright on a seamless white studio background"></div></div>
         <div class="product-info">
           <span class="verified-badge">FLAXX VERIFIED</span>
           <h1>The Body Wave</h1>
           <p class="price">Price coming soon</p>
           <p class="product-lede">Soft body wave. Invisible finish. Easy confidence from morning to night.</p>
+          <dl class="decision-facts"><div><dt>Style</dt><dd>Body wave</dd></div><div><dt>Wear</dt><dd>Ready-to-style wig</dd></div><div><dt>Finish</dt><dd>Natural movement</dd></div></dl>
           <fieldset><legend>Cap size <span id="size-label">select</span></legend><div class="options"><button data-size="Small">S</button><button data-size="Medium">M</button><button data-size="Large">L</button></div></fieldset>
           <fieldset><legend>Length</legend><div class="options"><button class="active">18 in</button></div></fieldset>
           <button class="dark-button full" id="add-to-bag">add to bag</button>
@@ -108,7 +119,7 @@
     </section>
   </main>
 
-  <footer><div><img src="assets/flaxx-logo.svg" alt="Flaxx Hair"><p>It is what it is.</p></div><div><b>SHOP</b><button data-route="shop">new</button><button data-route="shop">wigs</button><button data-route="shop">extensions</button></div><div><b>DISCOVER</b><button data-route="fit">find your fit</button><button data-route="verify">what verified means</button><button data-route="garden">flaxx garden</button></div><div><b>HELP</b><button>shipping</button><button>returns</button><button>contact</button></div><small>Private design preview. Product and verification labels are shown for interface review.</small></footer>
+  <footer><div><img src="assets/flaxx-logo.svg" alt="Flaxx Hair"><p>It is what it is, exactly!</p></div><div><b>SHOP</b><button data-route="shop">new</button><button data-route="shop">wigs</button><button data-route="shop">extensions</button></div><div><b>DISCOVER</b><button data-route="fit">find your fit</button><button data-route="verify">what verified means</button><button data-route="garden">flaxx garden</button></div><div><b>HELP</b><button>shipping</button><button>returns</button><button>contact</button></div><small>Private design preview. Product and verification labels are shown for interface review.</small></footer>
 
   <div class="overlay" id="overlay" hidden></div>
   <aside class="drawer" id="cart-drawer" aria-hidden="true"><div class="drawer-head"><h2>Your bag</h2><button class="drawer-close" aria-label="Close bag">×</button></div><div class="drawer-body" id="cart-body"></div><div class="drawer-foot"><button class="dark-button full">checkout</button><small>Preview only. No payment will be taken.</small></div></aside>

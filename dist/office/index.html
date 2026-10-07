@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Flaxx Operator Office — Formation Prototype</title>
+  <link rel="stylesheet" href="../refinements.css">
+  <link rel="stylesheet" href="office.css">
+</head>
+<body>
+  <header class="office-header">
+    <a href="../#home"><img src="../assets/flaxx-logo.svg" alt="Flaxx Hair"></a>
+    <div><span>Operator Office</span><small>Formation prototype</small></div>
+    <button id="refresh">Refresh</button>
+  </header>
+  <main>
+    <section class="office-intro">
+      <p>F4 GOVERNED CORE</p>
+      <h1>The entity’s work,<br>kept in one truth.</h1>
+      <p>This private Office shows what is formed, what is blocked, and what evidence is still required. It does not turn an open gate into permission.</p>
+    </section>
+    <section class="access-panel" id="access-panel">
+      <div><strong>Local review access</strong><p>Choose a role only when the backend is running in Formation development mode. No role selection appoints a person or grants production authority.</p></div>
+      <label>Review role<select id="role"><option value="systems">Systems</option><option value="creator">Creator</option><option value="managing-steward">Managing Steward</option><option value="product-quality">Product & Quality</option><option value="compliance">Operations & Compliance</option><option value="finance">Finance</option><option value="customer-operations">Customer Operations</option></select></label>
+    </section>
+    <p class="status" id="status" role="status">Connecting to the governed core…</p>
+    <section class="metric-grid" id="metrics"></section>
+    <section class="office-section"><div class="section-title"><p>ACTIVE BOUNDARIES</p><h2>Stage gates</h2></div><div class="gate-grid" id="gates"></div></section>
+    <section class="office-section"><div class="section-title"><p>DRIVE · BALANCE · SIGNALS</p><h2>Operating root</h2></div><div class="module-grid" id="modules"></div></section>
+    <section class="office-section"><div class="section-title"><p>LOCKED AFTER REST</p><h2>Creation principles</h2></div><div class="principle-list" id="principles"></div></section>
+  </main>
+  <script src="office.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "environment": "formation-prototype",
+    "entity": "Flaxx",
+    "legalName": "Flaxx Beauty Inc. (intended; not represented as completed)",
+    "creator": "Demilade",
+    "publicSlogan": "It is what it is, exactly!",
+    "commerceEnabled": false,
+    "reasonCommerceBlocked": "No released product, final price, live inventory, payment authority, approved terms, or end-to-end commerce gate."
+  },
+  "principles": [
+    {"id":"FH-P1","name":"Truth through the chain","rule":"No material claim without traceable product- or batch-linked support."},
+    {"id":"FH-P2","name":"Release by documented standard","rule":"No sale or shipment before the acceptance standard passes and the evidence record is complete."},
+    {"id":"FH-P3","name":"Informed choice","rule":"Material limitations, variation, origin, composition, care, and expected behaviour remain visible and accurate."},
+    {"id":"FH-P4","name":"Responsibility for mismatch","rule":"Contain, investigate, communicate, and perform the approved remedy."},
+    {"id":"FH-P5","name":"Controlled deepening","rule":"Deeper production control requires its own traceability, quality, legal, economic, and capacity gates."},
+    {"id":"FH-P6","name":"Growth within the promise","rule":"No expansion beyond proven release, cash, people, support, and external capacity."},
+    {"id":"FH-P7","name":"Human dignity","rule":"No source path may depend on coercion, exploitation, deception, forced labour, child labour, or unestablished legitimacy."},
+    {"id":"FH-P8","name":"30 / 60 / 100 multiplication","rule":"The 30 level is the minimum return standard; below it triggers review and blocks growth commitments."},
+    {"id":"FH-P9","name":"Addition releases multiplication","rule":"A non-founding hire or consultant requires a documented credible path to 10x multiplication."},
+    {"id":"FH-P10","name":"Creator stewardship remains controlling","rule":"Creator ownership may not fall below 51 percent."},
+    {"id":"FH-P11","name":"Founding return endures","rule":"Founder return remains separate from current labour and is distributed only from confirmed surplus after obligations."},
+    {"id":"FH-P12","name":"Quality mark inseparable from the standard","rule":"No mark use may be separated from FH-P1 through FH-P4 evidence and accountability."}
+  ],
+  "roles": [
+    {"id":"creator","name":"Creator","permissions":["reserved:decide","mark:approve","office:read","audit:read"]},
+    {"id":"managing-steward","name":"Managing Steward","permissions":["office:read","office:write","release:propose","decision:propose"]},
+    {"id":"product-quality","name":"Product & Quality","permissions":["office:read","evidence:write","inspection:write","release:confirm","claim:technical","mark:quality"]},
+    {"id":"compliance","name":"Operations & Compliance","permissions":["office:read","office:write","compliance:stop","compliance:resolve","claim:compliance","mark:compliance"]},
+    {"id":"finance","name":"Finance","permissions":["office:read","finance:write","economics:confirm"]},
+    {"id":"customer-operations","name":"Customer Operations","permissions":["office:read","case:write","remedy:execute","order:read"]},
+    {"id":"systems","name":"Systems","permissions":["office:read","system:operate","audit:read"]}
+  ],
+  "actors": [
+    {"id":"demilade","name":"Demilade","roleIds":["creator"],"active":true},
+    {"id":"formation-system","name":"Formation prototype system","roleIds":["systems"],"active":true}
+  ],
+  "products": [
+    {"id":"product-body-wave","name":"The Body Wave","state":"concept","public":false,"specificationId":null,"currentSkuIds":[],"allowedClaimIds":[],"limitations":["Concept only; no product has been released."],"createdAt":"2026-10-07T00:00:00.000Z"}
+  ],
+  "skus": [],
+  "specifications": [],
+  "suppliers": [],
+  "relationships": [],
+  "contracts": [],
+  "evidence": [],
+  "claims": [],
+  "samples": [],
+  "batches": [],
+  "inspections": [],
+  "releases": [],
+  "inventory": [],
+  "content": [],
+  "markUses": [],
+  "customers": [],
+  "consents": [],
+  "orders": [],
+  "shipments": [],
+  "cases": [],
+  "remedies": [],
+  "transactions": [],
+  "accountEntries": [],
+  "riverAllocations": [],
+  "decisions": [],
+  "stops": [],
+  "incidents": [],
+  "correctiveActions": [],
+  "documents": [],
+  "tasks": [],
+  "gates": [
+    {"id":"gate-commerce","name":"Controlled commerce pilot","state":"blocked","requirements":["legalEntity","bankAndPayoutTest","releasedSku","sellableInventory","approvedTerms","paymentTaxShipping","supportRemedy","securityPrivacyAccessibility","endToEndTest"],"evidenceIds":[]},
+    {"id":"gate-f4","name":"F4 whole-Garden completion","state":"open","requirements":["publicGarden","operatorOffice","workplace","threeLayers","operatingRoot","wholeGardenTest"],"evidenceIds":[]}
+  ],
+  "signals": [],
+  "audit": []
+}
