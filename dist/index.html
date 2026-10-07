@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Flaxx Hair makes hair quality easier to understand, compare, and trust.">
+  <title>Flaxx Hair — Know What You’re Wearing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="prototype-bar">PRIVATE F4 GARDEN DRAFT · CONCEPT PRODUCTS · NOT OPEN FOR SALE</div>
+  <header class="site-header" id="site-header">
+    <div class="utility-row">
+      <button class="text-link" data-route="garden">Join the Flaxx Garden for first access</button>
+      <div class="utility-actions"><span>CAD</span><button class="icon-button" id="theme-toggle" aria-label="Toggle contrast">◐</button></div>
+    </div>
+    <div class="nav-row">
+      <button class="logo-button" data-route="home" aria-label="Flaxx Hair home">
+        <img src="assets/flaxx-logo.svg" alt="Flaxx Hair">
+      </button>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <button data-route="shop">Shop</button>
+        <button data-route="fit">Find Your Fit</button>
+        <button data-route="verify">How We Verify</button>
+        <button data-route="garden">Flaxx Garden</button>
+      </nav>
+      <div class="nav-actions">
+        <button class="search-button" id="search-open" aria-label="Search"><span>Search</span><b>⌕</b></button>
+        <button class="icon-button desktop-only" aria-label="Saved items">♡</button>
+        <button class="icon-button desktop-only" aria-label="Account">♙</button>
+        <button class="icon-button bag-button" id="cart-open" aria-label="Open bag">▢<span id="cart-count">0</span></button>
+        <button class="icon-button mobile-menu" id="mobile-menu" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <button data-route="shop">Shop</button><button data-route="fit">Find Your Fit</button><button data-route="verify">How We Verify</button><button data-route="garden">Flaxx Garden</button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="view active" data-view="home">
+      <div class="hero">
+        <img src="assets/flaxx-hero.png" alt="Woman smiling with long body-wave hair against a soft lavender background">
+        <div class="hero-copy">
+          <p class="eyebrow">Hair, made knowable</p>
+          <h1>Know what you’re wearing.</h1>
+          <p>Clear evidence. Honest limits. Hair we can explain—and stand behind.</p>
+          <div class="button-row"><button class="btn dark" data-route="shop">Explore the first edit</button><button class="btn ghost" data-route="verify">See how verification works</button></div>
+        </div>
+      </div>
+
+      <section class="ticker" aria-label="Flaxx commitments"><span>PRODUCT-LINKED EVIDENCE</span><i>✦</i><span>SUITABILITY BEFORE PRESSURE</span><i>✦</i><span>CONTROLLED RELEASE</span><i>✦</i><span>ACCOUNTABILITY AFTER ARRIVAL</span></section>
+
+      <section class="section intro-grid">
+        <div><p class="eyebrow">The Flaxx difference</p><h2>Confidence should come from what can be shown.</h2></div>
+        <div><p>Hair shopping asks people to make expensive decisions from inconsistent labels, polished images, and promises that are hard to test. Flaxx is being built differently.</p><p>We connect every permitted claim to a controlled record, explain what the evidence does—and does not—prove, and keep responsibility after delivery.</p></div>
+      </section>
+
+      <section class="section product-section">
+        <div class="section-head"><div><p class="eyebrow">Core provision · concept edit</p><h2>Begin with what you can understand.</h2></div><button class="text-link arrow" data-route="shop">View all concepts →</button></div>
+        <div class="product-grid" id="home-products"></div>
+      </section>
+
+      <section class="split-feature">
+        <div class="split-image"><img src="assets/flaxx-editorial-curls.png" alt="Woman in a lavender suit smiling with voluminous curls"></div>
+        <div class="split-copy lavender-panel"><p class="eyebrow">Layer 1 · Find Your Fit</p><h2>Your first purchase should make the next decision clearer.</h2><p>The proposed Flaxx Fit & Proof Kit is a low-friction way to understand measurement, lace, representative texture, and the limits of what a sample can prove—before committing to a full unit.</p><button class="btn dark" data-route="fit">Explore the concept</button></div>
+      </section>
+
+      <section class="section evidence-band">
+        <p class="eyebrow">Evidence, translated</p>
+        <h2>Not every proof means the same thing.</h2>
+        <div class="evidence-grid">
+          <article><span>01</span><h3>Reference</h3><p>What the approved specification is meant to be.</p></article>
+          <article><span>02</span><h3>Batch</h3><p>What was observed in a defined production group.</p></article>
+          <article><span>03</span><h3>Unit</h3><p>What is known about the exact item released.</p></article>
+          <article><span>04</span><h3>Representative</h3><p>A useful example that is clearly labelled—not passed off as your exact unit.</p></article>
+        </div>
+        <button class="btn outline" data-route="verify">Understand the evidence system</button>
+      </section>
+
+      <section class="community-callout"><div><p class="eyebrow">Layer 3 · Flaxx Garden</p><h2>A community that helps shape what comes next—and shares in the value it creates.</h2><p>Members, testers, advocates, and co-creators receive real benefits. Participation never requires praise. Negative evidence remains evidence.</p></div><button class="btn light" data-route="garden">Enter the Garden concept</button></section>
+    </section>
+
+    <section class="view" data-view="shop">
+      <div class="page-hero compact"><p class="eyebrow">Concept collection</p><h1>Hair with something behind the claim.</h1><p>These products demonstrate the intended shopping architecture. No item is released or available for purchase.</p></div>
+      <div class="collection-toolbar"><span id="product-total">4 concepts</span><div><button class="pill active">All</button><button class="pill">Wigs</button><button class="pill">Entry</button><button class="pill">Care</button></div><button class="filter-button">Filter & sort ≡</button></div>
+      <div class="section product-grid large" id="shop-products"></div>
+    </section>
+
+    <section class="view" data-view="product">
+      <div class="product-page">
+        <div class="product-gallery"><div class="badge">CONCEPT · NOT RELEASED</div><img src="assets/flaxx-body-wave.png" alt="Body-wave closure wig displayed on a neutral stand"><div class="thumb-row"><button class="thumb active"><img src="assets/flaxx-body-wave.png" alt="Front product view"></button><button class="thumb"><div class="thumb-placeholder">DETAIL</div></button><button class="thumb"><div class="thumb-placeholder">LACE</div></button></div></div>
+        <div class="product-info">
+          <p class="eyebrow">Winter pilot · working specification</p>
+          <h1>Body-Wave Closure Unit</h1>
+          <p class="price">Expected price pending complete cost</p>
+          <p class="lede">An 18-inch natural-black body-wave concept with a glueless 5×5 closure and adjustable cap. Final construction, source, fit, claims, and price remain subject to sample and release evidence.</p>
+          <div class="proof-card"><div><span class="status-dot amber"></span><b>Formation status</b></div><p>Specification candidate selected. Samples, source evidence, winter-use testing, complete cost, and release remain open.</p><button data-route="verify">What this status means →</button></div>
+          <fieldset><legend>Cap size <span id="size-label">Not selected</span></legend><div class="option-grid"><button class="option" data-size="Small">Small</button><button class="option" data-size="Medium">Medium</button><button class="option" data-size="Large">Large</button></div></fieldset>
+          <fieldset><legend>Length</legend><div class="option-grid"><button class="option active">18 in</button></div></fieldset>
+          <button class="btn dark full" id="add-to-bag">Add concept to bag</button>
+          <p class="microcopy">Prototype only. This button tests the shopping flow and does not create an order or payment.</p>
+          <div class="accordion">
+            <details open><summary>What we intend to verify</summary><ul><li>Construction, density, lace and adjustable fit</li><li>Composition and permitted source statements</li><li>Wash, wear, winter behaviour and care</li><li>Batch consistency and exact-unit release</li></ul></details>
+            <details><summary>Evidence & limitations</summary><p>Supplier labels and imagery are screening inputs—not Flaxx evidence. Public claims appear only after the relevant sample, batch, or unit record passes.</p></details>
+            <details><summary>Delivery & remedy</summary><p>Delivery timing, return conditions, mismatch remedies, and recall routes will appear here only after Formation verifies them.</p></details>
+          </div>
+        </div>
+      </div>
+      <section class="section"><p class="eyebrow">Why we love the direction</p><h2>Protective coverage. Flexible styling. A complete first provision.</h2><div class="metric-grid"><div><b>Fit</b><span>Adjustable construction target</span></div><div><b>Movement</b><span>Soft body-wave behaviour to test</span></div><div><b>Evidence</b><span>Product, batch and unit records</span></div><div><b>Care</b><span>Product-linked guidance</span></div></div></section>
+    </section>
+
+    <section class="view" data-view="fit">
+      <div class="page-hero lavender-page"><p class="eyebrow">Layer 1 · working offer</p><h1>Fit first. Then decide.</h1><p>A proposed physical evidence-and-measurement kit designed to give you a useful result even if you never buy a full unit.</p></div>
+      <section class="section two-col"><div><h2>What the kit is meant to include</h2><ul class="clean-list"><li>Soft measuring tape and six-measurement map</li><li>Approved lace samples</li><li>Actual or clearly labelled representative hair swatch</li><li>Evidence and limitation card</li><li>Guided fit result and next step</li></ul></div><div class="price-card"><p class="eyebrow">Validation price</p><strong>$19 CAD delivered</strong><p>Working hypothesis only. It proceeds when quotations, a ten-kit packing test, comprehension, willingness to pay, postage, remedy, and positive contribution pass.</p><button class="btn dark" disabled>Not yet available</button></div></section>
+      <section class="section"><h2>What a sample cannot prove</h2><div class="evidence-grid three"><article><h3>Full construction</h3><p>A swatch does not prove cap comfort or closure workmanship.</p></article><article><h3>Wear life</h3><p>A short sample cannot establish long-term behaviour.</p></article><article><h3>Batch consistency</h3><p>Representative material does not release a commercial batch.</p></article></div></section>
+    </section>
+
+    <section class="view" data-view="verify">
+      <div class="page-hero dark-page"><p class="eyebrow">How Flaxx verifies</p><h1>Evidence before adjectives.</h1><p>“Premium,” “raw,” “ethical,” and “best” are not evidence. Flaxx is being built to show what supports a claim, what that support covers, and where its limits begin.</p></div>
+      <section class="section verification-steps"><article><span>1</span><div><h2>Form the specification</h2><p>Define what the provision must be before asking a supplier to describe it.</p></div></article><article><span>2</span><div><h2>Qualify the source and rights</h2><p>Confirm identity, authority, origin evidence, capability, change control, private-label rights, and remedies.</p></div></article><article><span>3</span><div><h2>Compare development samples</h2><p>Use the same questions and acceptance method across candidate sources.</p></div></article><article><span>4</span><div><h2>Inspect, quarantine, and release</h2><p>Risk-reduction inspection does not replace the final Flaxx release decision.</p></div></article><article><span>5</span><div><h2>Keep responsibility after arrival</h2><p>Record mismatch, investigate, communicate, and perform the approved remedy.</p></div></article></section>
+    </section>
+
+    <section class="view" data-view="garden">
+      <div class="page-hero garden-page"><p class="eyebrow">Long-horizon provision</p><h1>Grow with the standard.</h1><p>Flaxx Garden is a working community concept for people who want to test, learn, advocate, contribute, or co-create—with real benefit and without purchased praise.</p></div>
+      <section class="section persona-cards"><article><span>01</span><h2>Member</h2><p>Receives useful guidance, early learning, and relevant access.</p></article><article><span>02</span><h2>Tester</h2><p>Uses a defined protocol and receives a real testing benefit. Negative findings remain visible.</p></article><article><span>03</span><h2>Advocate</h2><p>May receive disclosed value for attributable qualified referrals—not for praise.</p></article><article><span>04</span><h2>Co-creator</h2><p>Receives credit and separately agreed participation before an original contribution is commercialized.</p></article></section>
+      <section class="newsletter"><div><p class="eyebrow">Founding cohort</p><h2>Be first to know when the Garden is ready to test.</h2></div><form id="interest-form"><label><span>Email</span><input type="email" placeholder="you@example.com" required></label><button class="btn dark">Record prototype interest</button></form><p class="form-message" id="form-message" role="status"></p></section>
+    </section>
+  </main>
+
+  <footer><div class="footer-brand"><img src="assets/flaxx-logo.svg" alt="Flaxx Hair"><p>Hair quality, made easier to know.</p></div><div><h3>Explore</h3><button data-route="shop">Shop concepts</button><button data-route="fit">Find your fit</button><button data-route="verify">How we verify</button></div><div><h3>Help</h3><button>Shipping</button><button>Returns & remedies</button><button>Contact</button></div><div><h3>Formation</h3><p>This private prototype contains no released products, live checkout, or collected customer records.</p></div></footer>
+
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="drawer" id="cart-drawer" aria-hidden="true" aria-label="Shopping bag"><div class="drawer-head"><h2>Your bag</h2><button class="icon-button drawer-close" aria-label="Close bag">×</button></div><div id="cart-body" class="drawer-body"></div><div class="drawer-foot"><div><span>Prototype total</span><strong id="cart-total">$0 CAD</strong></div><button class="btn dark full" id="checkout-button">Continue to prototype checkout</button><p>No payment will be taken.</p></div></aside>
+  <aside class="drawer search-drawer" id="search-drawer" aria-hidden="true" aria-label="Search"><div class="drawer-head"><h2>Search Flaxx</h2><button class="icon-button drawer-close" aria-label="Close search">×</button></div><div class="drawer-body"><label class="search-field"><span class="sr-only">Search</span><input id="search-input" type="search" placeholder="Search products, fit, evidence…"><button>⌕</button></label><div id="search-results"></div></div></aside>
+  <script src="app.js"></script>
+</body>
+</html>
