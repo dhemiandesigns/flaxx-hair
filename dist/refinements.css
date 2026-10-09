@@ -579,3 +579,6 @@
 body:has(.view.active .straight-slide.active) .nav-row { color: #111; }
 body:has(.view.active .straight-slide.active) .nav-actions img { filter: brightness(0); }
 @media(max-width:700px) { .straight-slide picture img { object-fit: contain; object-position: center top; background:#fafafa; } }
+
+/* Cart badge: hidden when empty, shown as count badge when items are in bag */
+#cart-count:empty { display: none !important; }
