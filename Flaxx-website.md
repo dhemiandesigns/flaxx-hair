@@ -119,13 +119,22 @@ The verification detail lives **only** inside the `<details>` accordion under "V
 **Product card badge:** Shows only the grade code (e.g. `G3`) as a small square chip — top-left of the card image. It must not be large or distracting.
 
 **Inside the verification panel, a released batch shows:**
-- Grade code + one-line meaning
-- Inspection date
-- Released date
-- Criteria list with exact measurements (so customers can see the numbers, not just pass/fail)
-- Release status pill
+- Grade capsule — "Grade 3" (spelled out), same capsule style as the card chip
+- Released date (not inspection date — that is an internal record)
+- Criteria rows: label | value | measurement context
+  - Weight (grams)
+  - Length (inches)
+  - Shedding (strand count per 30-stroke brush test)
+  - Cuticle alignment (confirmed / burn test)
+  - Colour (range or percentage variation)
+  - Tangle (behaviour note)
+  - Source (supplier name + country, declared)
 
-**Grade 2 disclosure rule:** If a batch is Grade 2 and released under Option B, the verification panel must clearly show which criterion fell short and by how much. This is a transparency commitment — not optional.
+**No pass/fail labels.** The grade capsule carries the overall verdict. The criteria list carries the evidence — raw numbers only. Customers see what they're buying; the data speaks.
+
+**Grade 2 disclosure rule:** If a batch is Grade 2 and released under Option B, show the actual measured values (e.g. 7 strands shedding; 8% colour variation). Do not add a "below threshold" label — the number is the disclosure. This is a transparency commitment — not optional.
+
+**Pending state:** If no batch has been released, show the Grade capsule and a one-paragraph explanation that batch data will appear once a batch clears the release process.
 
 ---
 
@@ -217,5 +226,6 @@ These documents live in the KRST Formation Framework (F-series), not in this cod
 | Oct 2026 | Claude (Cowork) | Grade model rebuilt — conformance not tier. Shade Comfort updated to Grade 3. Batch criteria updated with measurements. `.verified-badge` restyled to compact chip. Continuity record created. | Batch records for remaining 3 products; GitHub Pages setup; Creator's Framework backend integration |
 | 8 Oct 2026 | Codex | Published the complete current local website to the canonical public repository `dhemiandesigns/flaxx-hair`; connected local `main` to `origin/main`; renamed the continuity record to `Flaxx-website.md`; made its update mandatory before every commit or handoff; verified all six backend policy tests. | Configure the chosen live deployment route; continue recording every later website change here before committing or handing off. |
 | 8 Oct 2026 | Codex | Corrected the earlier source-selection error. Recovered the exact website represented by the authoritative ChatGPT-hosted URL into the canonical computer folder, synchronized root and `dist/`, and established the computer folder → GitHub `main` → Vercel workflow. The live-reference version keeps all product verification states pending. | Every later contributor must pull first, edit the canonical folder, update this file, verify, commit, and push; never leave newer work only inside a chat or hosted preview. |
+| 9 Oct 2026 | Claude (Cowork) | Verification panel redesigned: Grade capsule (spelled out), release date, factual criteria rows (no pass/fail labels). Shade Comfort example batch data added. CSS for vp-criteria, vp-row, vp-context, vp-release, vp-pending. G3 chip repositioned to price row, styled as capsule matching merchandising tag, ordered before status tag. | Backend should supply: released date, weight, length, shedding count, cuticle result, colour note, source name per batch |
 | 9 Oct 2026 | Claude (Cowork) | Visual updates: replaced feeling-feature image with Frame 33, changed lavender to #CE98FF, footer → black with lavender-tinted logo. Cart badge: hidden when bag is empty, shows item count only when items are added. dist/ synced. | Push commit to GitHub main; grade chip display when batches are released | 
 | 9 Oct 2026 | Claude (Cowork) | Feature fixes: cart badge colour corrected (was white-on-white due to currentColor inheritance); removed redundant Verification pending badge from product detail back-button area; favourites system fully wired — toggleSaved(), updateHeartButtons(), renderSaved(), saved drawer, header heart button opens saved panel, save-product button on detail page, unsave from drawer, badge count on header heart. dist/ synced. | — |
