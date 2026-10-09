@@ -596,13 +596,13 @@ body:has(.view.active .straight-slide.active) .nav-actions img { filter: brightn
 .grade-chip {
   display: inline-flex;
   align-items: center;
-  background: #111;
-  color: #fff;
   font-size: 9px;
+  padding: 3px 7px;
+  border-radius: 12px;
+  background: var(--ink);
+  color: var(--paper);
   font-weight: 700;
-  letter-spacing: .08em;
-  padding: 4px 6px;
-  border-radius: 3px;
+  letter-spacing: .06em;
   vertical-align: middle;
 }
 
