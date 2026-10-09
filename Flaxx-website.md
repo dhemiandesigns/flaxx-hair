@@ -4,6 +4,12 @@
 
 `Flaxx-website.md` is the canonical cross-chat handoff file. Every contributor must read it before editing and update it before finishing, whether the work was performed locally, in Codex, ChatGPT, Claude, GitHub, or another approved environment.
 
+The canonical editable checkout on Demilade's computer is:
+
+`/Users/demidhemian/Documents/KRST/Creation and Formation/TEST CASE/flaxx/website-draft`
+
+The GitHub repository is the shared remote copy. Work must not remain only in a chat, hosted preview, canvas, or temporary workspace. A contributor who changes the website must write the change into the canonical computer folder, update this record, verify the site, commit the files, and push `main` to GitHub. Anyone working elsewhere must first pull the latest `main` and must have authorized GitHub write access before pushing.
+
 ---
 
 ## What this is
@@ -12,7 +18,7 @@ Static HTML/CSS/JS website for **Flaxx Beauty Inc.** — a hair brand within the
 
 The website is a **product prototype** built to demonstrate the brand experience, the transparency/verification model, and the product catalogue ahead of launch. It is not yet connected to a live commerce backend.
 
-**Live draft URL (ChatGPT-hosted):** `flaxx-hair-garden-draft.demidhemian.chatgpt.site`
+**Authoritative visual reference at the 8 October 2026 reconciliation:** `https://flaxx-hair-garden-draft.demidhemian.chatgpt.site/#home`
 **GitHub repo:** `github.com/dhemiandesigns/flaxx-hair`
 
 ---
@@ -42,7 +48,7 @@ website-draft/
 └── Flaxx-website.md    — mandatory continuity record
 ```
 
-**Important:** `dist/` must always mirror the source. When you edit `app.js` or `styles.css`, copy the updated file into `dist/` as well. They are kept in sync manually.
+**Important:** The root website files and `dist/` must always mirror one another. Do not edit or deploy only one copy. The 8 October 2026 reconciliation restored both copies from the exact ChatGPT-hosted visual reference above.
 
 ---
 
@@ -66,12 +72,12 @@ All products live in the `products` array in `app.js` (line 2 onward).
 
 | Product | Status | Batch | Tag shown |
 |---|---|---|---|
-| Shade Comfort | Released | FH-20261025-001 | `G3` |
+| Shade Comfort | Pending | — | `Verification pending` |
 | Maya Silk | Pending | — | `Verification pending` |
 | Amara Curl | Pending | — | `Verification pending` |
 | Elise Copper | Pending | — | `Verification pending` |
 
-**Shade Comfort** is the only product with a released batch record. It is Grade 3 under the conformance model (see below).
+No product currently has a Formation-confirmed release record in the reconciled visual prototype. Product status must not be upgraded in the interface until the corresponding governed evidence and release decision exist.
 
 ---
 
@@ -144,7 +150,7 @@ The site is a single-page app. Views are shown/hidden by adding/removing the `ac
 - Product grid with 4 products
 - Product detail page with gallery, options, accordion details, and verification panel
 - Verification record panel (batch data, criteria, release status)
-- Grade conformance model implemented for Shade Comfort (Grade 3)
+- Product cards with image galleries, colour previews, merchandising tags, length selection, save and bag controls
 - "What verified means" editorial page
 - Cart drawer (UI only — no backend)
 - Dark mode toggle
@@ -162,7 +168,7 @@ The site is a single-page app. Views are shown/hidden by adding/removing the `ac
 - [ ] "Find your fit" page — content placeholder only
 - [ ] Flaxx Garden page — email capture form (UI exists, no backend)
 - [ ] Grade 2 disclosure UI (amber warning state) — defined in spec, not yet triggered
-- [ ] GitHub Pages deployment setup
+- [ ] Production-ready governed commerce backend and persistent database
 
 ---
 
@@ -170,7 +176,20 @@ The site is a single-page app. Views are shown/hidden by adding/removing the `ac
 
 This is a static site. Any static host works (GitHub Pages, Netlify, Vercel, etc.).
 
-**To deploy via GitHub Pages:**
+**Current hosting: Vercel (Hobby / Free tier)**
+Connected to: `github.com/dhemiandesigns/flaxx-hair` — auto-deploys on every push to `main`.
+
+> ⚠️ **FREE-TIER RULE — mandatory for all editors, all AI, all time:**
+> This project MUST stay within Vercel's Hobby (free) plan limits.
+> Do NOT enable, add, or configure anything that triggers a paid plan upgrade —
+> including but not limited to: team members, Edge Config beyond free quota,
+> Analytics beyond free quota, Cron Jobs beyond free quota, Image Optimization
+> beyond free quota, or any Vercel add-on that incurs a charge.
+> This rule applies now and in the future. If you are unsure whether a feature
+> is free, check vercel.com/pricing before enabling it.
+> **Never approach the paid tier. This is a non-negotiable project constraint.**
+
+**To deploy manually via GitHub Pages (fallback):**
 1. Go to the repo Settings → Pages
 2. Set source to `main` branch, root `/` (or `/dist` if serving from dist)
 3. The site will be live at `https://dhemiandesigns.github.io/flaxx-hair`
@@ -197,3 +216,4 @@ These documents live in the KRST Formation Framework (F-series), not in this cod
 | Oct 2026 | ChatGPT | Initial website prototype built | — |
 | Oct 2026 | Claude (Cowork) | Grade model rebuilt — conformance not tier. Shade Comfort updated to Grade 3. Batch criteria updated with measurements. `.verified-badge` restyled to compact chip. Continuity record created. | Batch records for remaining 3 products; GitHub Pages setup; Creator's Framework backend integration |
 | 8 Oct 2026 | Codex | Published the complete current local website to the canonical public repository `dhemiandesigns/flaxx-hair`; connected local `main` to `origin/main`; renamed the continuity record to `Flaxx-website.md`; made its update mandatory before every commit or handoff; verified all six backend policy tests. | Configure the chosen live deployment route; continue recording every later website change here before committing or handing off. |
+| 8 Oct 2026 | Codex | Corrected the earlier source-selection error. Recovered the exact website represented by the authoritative ChatGPT-hosted URL into the canonical computer folder, synchronized root and `dist/`, and established the computer folder → GitHub `main` → Vercel workflow. The live-reference version keeps all product verification states pending. | Every later contributor must pull first, edit the canonical folder, update this file, verify, commit, and push; never leave newer work only inside a chat or hosted preview. |
