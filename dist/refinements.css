@@ -586,8 +586,8 @@ body:has(.view.active .straight-slide.active) .nav-actions img { filter: brightn
 #cart-count:empty { display: none !important; }
 
 /* Badge always dark regardless of nav text colour */
-#cart-count,
-#saved-count {
+#cart-count, /* removed */
+/* #saved-count {
   background: var(--ink) !important;
   color: var(--paper) !important;
 }
