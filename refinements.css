@@ -250,6 +250,8 @@
 
 .icon-action:hover,
 .icon-action:focus-visible,
+.quick-heart[aria-pressed="true"],
+.save-product[aria-pressed="true"],
 .quick-heart.saved {
   background: var(--lav);
 }
@@ -582,3 +584,10 @@ body:has(.view.active .straight-slide.active) .nav-actions img { filter: brightn
 
 /* Cart badge: hidden when empty, shown as count badge when items are in bag */
 #cart-count:empty { display: none !important; }
+
+/* Badge always dark regardless of nav text colour */
+#cart-count,
+#saved-count {
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+}

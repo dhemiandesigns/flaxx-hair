@@ -250,6 +250,8 @@
 
 .icon-action:hover,
 .icon-action:focus-visible,
+.quick-heart[aria-pressed="true"],
+.save-product[aria-pressed="true"],
 .quick-heart.saved {
   background: var(--lav);
 }
@@ -544,7 +546,7 @@
 .card-price s { font-size:11px; }
 .merchandising-tag { font-size:9px; padding:3px 7px; border:1px solid var(--line); border-radius:12px; }
 .product-card :focus-visible { outline:2px solid #8252b3; outline-offset:3px; }
-.feeling-feature { min-height:0; background:#e8dbff; align-items:center; }
+.feeling-feature { min-height:0; background:#ce98ff; align-items:center; }
 .feeling-feature>img { display:block; height:auto; width:100%; object-fit:contain; }
 .feeling-feature>div { padding:6vw; }
 .deal-star { letter-spacing:2px; font-size:12px; }
@@ -582,3 +584,10 @@ body:has(.view.active .straight-slide.active) .nav-actions img { filter: brightn
 
 /* Cart badge: hidden when empty, shown as count badge when items are in bag */
 #cart-count:empty { display: none !important; }
+
+/* Badge always dark regardless of nav text colour */
+#cart-count,
+#saved-count {
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+}
