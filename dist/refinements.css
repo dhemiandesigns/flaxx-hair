@@ -623,3 +623,67 @@ body:has(.view.active .straight-slide.active) .nav-actions img { filter: brightn
   font-size: 13px;
   font-weight: 500;
 }
+
+/* ── Verification panel ─────────────────────────────────── */
+.vp-header { margin: 0 0 .75rem; }
+
+.grade-chip--panel {
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: .04em;
+}
+
+.vp-release {
+  font-size: 11px;
+  color: var(--stone, #7A6E62);
+  margin: 0 0 1.1rem;
+  letter-spacing: .02em;
+}
+
+.vp-criteria {
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.vp-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line, #e5e1db);
+  font-size: 12px;
+}
+
+.vp-row:first-child { border-top: 1px solid var(--line, #e5e1db); }
+
+.vp-row dt {
+  color: var(--stone, #7A6E62);
+  font-weight: 500;
+  flex: 0 0 38%;
+  min-width: 0;
+}
+
+.vp-row dd {
+  margin: 0;
+  text-align: right;
+  flex: 1;
+  min-width: 0;
+}
+
+.vp-context {
+  display: block;
+  font-size: 10px;
+  color: var(--stone, #7A6E62);
+  margin-top: 1px;
+}
+
+.vp-pending {
+  font-size: 12px;
+  color: var(--stone, #7A6E62);
+  line-height: 1.55;
+  margin: 0 0 1.1rem;
+}
