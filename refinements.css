@@ -594,10 +594,8 @@ body:has(.view.active .straight-slide.active) .nav-actions img { filter: brightn
 
 /* Grade chip — small square code on product card image */
 .grade-chip {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 2;
+  display: inline-flex;
+  align-items: center;
   background: #111;
   color: #fff;
   font-size: 9px;
@@ -605,7 +603,7 @@ body:has(.view.active .straight-slide.active) .nav-actions img { filter: brightn
   letter-spacing: .08em;
   padding: 4px 6px;
   border-radius: 3px;
-  pointer-events: none;
+  vertical-align: middle;
 }
 
 /* Larger chip inside accordion */
