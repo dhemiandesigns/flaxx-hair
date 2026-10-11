@@ -1,9 +1,25 @@
-const products=[
+let products=[
   {name:'Shade Comfort',byline:'by Flaxx · Polished bob',detail:'polished bob · natural black',price:'Price confirmed at release',tag:'Batch released',worn:'assets/shade-comfort-gallery-01-v2.png',studio:'assets/mannequin-bob-front.png',gallery:['assets/shade-comfort-gallery-01-v2.png','assets/shade-comfort-gallery-02-v2.png','assets/shade-comfort-gallery-03-v2.png','assets/mannequin-bob-front.png','assets/mannequin-bob-back.png','assets/shade-comfort-gallery-06-street-v2.png'],texture:'Polished straight bob',colour:'Natural black',lede:'A clean, expressive bob with an easy fit and a finish made to look like the picture—exactly.',grade:'G3',gradeLabel:'Target — ships standard',batch:{released:'October 2026',criteria:[{label:'Weight',value:'102g',context:'±2% of benchmark'},{label:'Length',value:'22 in',context:'±1% of stated length'},{label:'Shedding',value:'3 strands',context:'per 30-stroke brush test'},{label:'Cuticle alignment',value:'Confirmed',context:'standard burn test'},{label:'Colour',value:'Within benchmark range',context:''},{label:'Tangle',value:'Combs cleanly',context:''},{label:'Hair origin',value:'India',context:''}]}},
   {name:'Maya Silk',byline:'by Flaxx · Sleek straight',detail:'sleek straight · natural black',price:'Price confirmed at release',tag:'Verification pending',worn:'assets/product-everyday-straight-worn-v3.png',studio:'assets/mannequin-straight-front.png',gallery:['assets/product-everyday-straight-worn-v3.png','assets/mannequin-straight-front.png'],texture:'Sleek straight',colour:'Natural black',lede:'A polished straight finish with movement that stays easy, clean and completely yours.',grade:'G3',gradeLabel:'Target — ships standard'},
   {name:'Amara Curl',byline:'by Flaxx · Soft curl',detail:'soft curl · natural black',price:'Price confirmed at release',tag:'Verification pending',worn:'assets/product-soft-curl-worn-v3.png',studio:'assets/mannequin-curl-front.png',gallery:['assets/product-soft-curl-worn-v3.png','assets/mannequin-curl-front.png'],texture:'Soft curl',colour:'Natural black',lede:'Full, touchable curls designed to frame the face and move without losing their character.',grade:'G3',gradeLabel:'Target — ships standard'},
   {name:'Elise Copper',byline:'by Flaxx · Copper wave',detail:'silky wave · warm copper',price:'Price confirmed at release',tag:'Verification pending',worn:'assets/product-copper-worn-v3.png',studio:'assets/mannequin-copper-front.png',gallery:['assets/product-copper-worn-v3.png','assets/mannequin-copper-front.png'],texture:'Silky body wave',colour:'Warm copper',lede:'A warm copper statement with a soft wave and a finish that still feels effortless.',grade:'G3',gradeLabel:'Target — ships standard'}
 ];
+const previewParams=new URLSearchParams(location.search);
+const corePreview=previewParams.get('core-preview')==='1';
+if(corePreview){
+  try{
+    const draft=JSON.parse(localStorage.getItem('flaxx-core-commerce-v2')||'null');
+    if(Array.isArray(draft?.products)&&draft.products.length){
+      products=draft.products.filter(item=>item.status!=='Archived').map(item=>{
+        const gallery=(item.gallery||[]).map(src=>String(src).replace(/^\//,''));
+        const firstVariant=item.variants?.[0]||{};
+        const studio=gallery.find(src=>src.includes('mannequin'))||gallery[1]||gallery[0]||'assets/mannequin-straight-front.png';
+        return {name:item.name,byline:`by Flaxx · ${item.subtitle||item.type||'Hair'}`,detail:`${item.subtitle||item.texture||'Hair'} · ${item.colour||'Colour pending'}`.toLowerCase(),price:Number(firstVariant.price)>0?moneyPreview(firstVariant.price):'Price confirmed at release',tag:item.verification||'Verification pending',worn:gallery[0]||studio,studio,gallery:gallery.length?gallery:[studio],texture:item.texture||item.subtitle||'',colour:item.colour||'Natural black',lede:item.description||'',grade:item.grade||'G3 target',gradeLabel:item.verification==='Batch released'?'Released':'Target — ships standard',colourOptions:[{name:item.colour||'Natural black',hex:'#282629'}],sale:Number(firstVariant.compareAt)>Number(firstVariant.price)&&Number(firstVariant.price)>0,confirmedPrice:Number(firstVariant.price)||null,confirmedComparisonPrice:Number(firstVariant.compareAt)||null,merchandisingState:item.collections?.includes('New')?'New':'',coreId:item.id};
+      });
+    }
+  }catch{}
+}
+function moneyPreview(value){return Number(value).toLocaleString('en-CA',{style:'currency',currency:'CAD'});}
 const state={cart:[],saved:[],size:null,length:null,density:null,part:'Center',colour:'Natural black',productIndex:0,galleryIndex:0};
 const views=[...document.querySelectorAll('.view')];
 const heroSlides=[...document.querySelectorAll('[data-hero-slide]')];
@@ -108,4 +124,4 @@ document.querySelector('.save-product').addEventListener('click',()=>toggleSaved
 window.addEventListener('popstate',e=>{const name=e.state?.route||location.hash.slice(1)||'home';route(name,e.state?.productIndex,'none')});
 function showHero(index){heroIndex=index;heroSlides.forEach((slide,i)=>{const active=i===index;slide.classList.toggle('active',active);slide.setAttribute('aria-hidden',String(!active))});heroDots.forEach((dot,i)=>dot.classList.toggle('active',i===index))}
 heroDots.forEach(dot=>dot.addEventListener('click',()=>{clearInterval(heroTimer);showHero(Number(dot.dataset.heroDot))}));if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)heroTimer=setInterval(()=>showHero((heroIndex+1)%heroSlides.length),6500);
-const initial=location.hash.slice(1);route(views.some(v=>v.dataset.view===initial)?initial:'home',0,'replace');renderCart();
+const initial=location.hash.slice(1);const previewProductId=previewParams.get('product');const previewProductIndex=Math.max(0,products.findIndex(item=>item.coreId===previewProductId));route(views.some(v=>v.dataset.view===initial)?initial:'home',previewProductIndex,'replace');renderCart();

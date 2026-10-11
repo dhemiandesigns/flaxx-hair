@@ -227,6 +227,16 @@ The site is a single-page app. Views are shown/hidden by adding/removing the `ac
 
 **Visual correction:** Core now uses Flaxx gray, lavender and white. The yellow-beige cast was removed. Content density, compact tables and secondary navigation were increased while retaining Aeonik and the existing Flaxx card language.
 
+### 11 October 2026 — Commerce-grade Website & Content workspace
+
+**Changed:** Rebuilt Website & Content from a light content list into a complete commerce-management prototype. The workspace now contains Overview, Products, Collections, Pages, Homepage, Navigation, Media and Publishing. Product rows open from the full row rather than a small edit control. The complete product record includes customer copy, all existing media with ordering and removal controls, hair and cap specifications, care, variants, SKU, price, cost, margin, stock, supplier, collections, tags, search listing, publication state and retained-record warnings. Page records now have full draft editors. Homepage sections can be reordered or hidden, menus can be edited and reordered, and Publishing provides a draft preview and revision history.
+
+**Flaxx release control:** An unreleased product may be drafted and previewed but cannot be published to the online store. Website & Content reads the Product & Quality release state; it does not create or amend that state. Deleting a presentation record does not delete its retained batch, quality, order, finance, service or audit records. Destructive product and page actions require explicit confirmation.
+
+**End-to-end preview:** Core product drafts can now be opened on the actual customer website with `?core-preview=1`; a selected product can be previewed directly from its editor. Normal public visits continue to use repository-controlled website data. Browser drafts do not silently become public content.
+
+**Boundary:** This remains a safe Formation prototype using browser-local state. Production activation still requires authenticated durable records, object storage, record-level access, approval, scheduled publishing, rollback, audit, backup and deployment services. The production publish control remains disabled until those services are connected.
+
 ---
 
 ## How to deploy
@@ -277,3 +287,4 @@ These documents live in the KRST Formation Framework (F-series), not in this cod
 | 9 Oct 2026 | Claude (Cowork) | Verification panel redesigned: Grade capsule (spelled out), release date, factual criteria rows (no pass/fail labels). Shade Comfort example batch data added. CSS for vp-criteria, vp-row, vp-context, vp-release, vp-pending. G3 chip repositioned to price row, styled as capsule matching merchandising tag, ordered before status tag. | Backend should supply: released date, weight, length, shedding count, cuticle result, colour note, source name per batch |
 | 9 Oct 2026 | Claude (Cowork) | Visual updates: replaced feeling-feature image with Frame 33, changed lavender to #CE98FF, footer → black with lavender-tinted logo. Cart badge: hidden when bag is empty, shows item count only when items are added. dist/ synced. | Push commit to GitHub main; grade chip display when batches are released | 
 | 9 Oct 2026 | Claude (Cowork) | Feature fixes: cart badge colour corrected (was white-on-white due to currentColor inheritance); removed redundant Verification pending badge from product detail back-button area; favourites system fully wired — toggleSaved(), updateHeartButtons(), renderSaved(), saved drawer, header heart button opens saved panel, save-product button on detail page, unsave from drawer, badge count on header heart. dist/ synced. | — |
+| 11 Oct 2026 | Codex | Rebuilt Website & Content as a commerce-grade operating workspace with complete product records, media ordering, variants, SKU/pricing/cost/stock, pages, collections, homepage sections, navigation, media, revision history and guarded publishing. Added real storefront draft preview while preserving the browser-local prototype boundary. | Connect production identity, durable database/object storage, release records and an approved publishing service before live use. |

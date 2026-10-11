@@ -191,6 +191,14 @@ function renderWorkspace(id){
 }
 
 function renderContentWorkspace(){
+  if(window.FlaxxContentAdmin){
+    window.FlaxxContentAdmin.mount(document.querySelector('#workspace-view'),{
+      roleName:currentData.roles.map(item=>item.name).join(' · '),
+      escapeHtml,
+      showToast
+    });
+    return;
+  }
   const roleName=currentData.roles.map(item=>item.name).join(' · ');
   document.querySelector('#workspace-view').innerHTML=`<section class="content-shell">
     <a class="back-link" href="#dashboard">← Back to dashboard</a>
@@ -275,6 +283,7 @@ async function openChannel(id){try{activeChannel=id;document.querySelectorAll('[
 
 document.addEventListener('change',async event=>{if(event.target===role){arranging=false;await load();return;}if(event.target.matches('[data-task]')){if(currentData.preview){const task=currentData.tasks.find(item=>item.id===event.target.dataset.task);if(task)task.state=event.target.value;renderDashboard(currentData);return;}try{await request(`/api/core/tasks/${event.target.dataset.task}/state`,{method:'POST',body:JSON.stringify({state:event.target.value})});await load();}catch(error){status.textContent=error.message;}}});
 document.addEventListener('click',event=>{
+  if(window.FlaxxContentAdmin?.handleClick(event))return;
   const close=event.target.closest('[data-dialog-close]');if(close){const dialog=close.closest('dialog');dialog?.close();dialog?.remove();return;}
   const tabButton=event.target.closest('[data-content-tab]');if(tabButton){activeContentTab=tabButton.dataset.contentTab;renderContentTab();return;}
   if(event.target.closest('[data-add-product]')){openProductDialog();return;}
