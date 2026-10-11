@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/refinements.css">
   <link rel="stylesheet" href="/core/core.css">
   <link rel="stylesheet" href="/core/visibility.css">
+  <link rel="stylesheet" href="/core/core-v2.css">
 </head>
 <body>
   <header class="topbar">
@@ -40,20 +41,20 @@
     <main id="app" tabindex="-1">
       <section id="dashboard-view">
         <section class="welcome">
-          <div><p class="eyebrow">Dashboard</p><h2>Work & follow-up</h2></div>
+          <div><p class="eyebrow">Overview</p><h2>Dashboard</h2></div>
           <div class="welcome-side"><strong id="current-role">First Operator</strong><p class="status" id="status" role="status">Loading your dashboard…</p></div>
         </section>
 
         <section class="metric-grid" id="metrics" aria-label="Key information"></section>
 
-        <section class="panel" id="work-panel" hidden>
-          <header><div><p class="eyebrow">Next actions</p><h2>Work</h2></div><span id="work-count"></span></header>
+        <section class="panel urgent-panel" id="work-panel" hidden>
+          <header><div><p class="eyebrow">Needs attention</p><h2>Work & follow-up</h2></div><span id="work-count"></span></header>
           <div id="tasks" class="task-list"></div>
         </section>
 
         <section class="section-block dashboard-section">
           <div class="section-heading">
-            <div><p class="eyebrow">At a glance</p><h2>Dashboards</h2></div>
+            <div><p class="eyebrow">At a glance</p><h2>Your workspaces</h2></div>
             <div class="heading-actions"><span id="dashboard-role"></span><button id="arrange" class="text-button">Arrange</button></div>
           </div>
           <p class="arrange-note" id="arrange-note" hidden>Use the arrows to put the information you rely on most at the top. Your order is saved on this device.</p>

@@ -58,6 +58,12 @@ No inventory becomes sellable because it was received. It enters quarantine and 
 
 This supports one operator now and many teams later because departments, appointments and access grants are records rather than hard-coded people.
 
+## Dashboard and workspace interaction
+
+The complete first page is the role dashboard. Work and follow-up form its urgent-action area. Every available function contributes a compact summary of current state and pending work, with a route to the full workspace and a contextual action where safe. Personal dashboard ordering is presentation state only and cannot change access, authority or mandatory alerts.
+
+Website & Content is the first populated vertical slice. Its current hosted prototype uses browser-local draft state for safe interaction testing; this is not a publication system or operating record. Production content operations require authenticated durable records, object storage, revision history, approval and publishing states, rollback, rights metadata and audit events. A product removed from the public presentation may be archived, but linked quality, batch, order, service, finance and audit records remain subject to retention.
+
 ## Creation and Formation safeguards
 
 - FH-P1–FH-P4 govern evidence, release, usable truth and remedy.

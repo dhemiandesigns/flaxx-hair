@@ -217,6 +217,16 @@ The site is a single-page app. Views are shown/hidden by adding/removing the `ac
 
 **Current depth:** Dashboard routing, role ordering, workspace shells and role guides are implemented. Workspace action buttons remain inactive until the corresponding operating screen and durable data connection are built. No live business record is implied by the visual shell.
 
+### 11 October 2026 — Operational dashboard and Website & Content workspace
+
+**Dashboard correction:** The entire first page is now the dashboard. Work & Follow-up is the compact urgent-action area within it rather than the page identity. Every role workspace is represented by a concise operational card containing its current count or state, relevant pending information, a route to the complete workspace and—where safe—an immediate action. Website & Content can launch **Add product** from the dashboard; Suppliers & Contracts can prepare a follow-up draft. Dashboard order remains personally adjustable without changing access or responsibility.
+
+**Website & Content vertical slice:** Replaced the generic workspace explanation with an operational content area populated from the current Flaxx website. It includes Overview, Pages, Homepage, Products and Media views; six website page records; three existing homepage slides; the four current product concepts; and the existing media library. An operator can inspect pages, edit homepage-slide drafts, add or edit a product with an uploaded image, and remove a product after an explicit confirmation.
+
+**Prototype storage boundary:** Website & Content edits currently persist in that browser's local storage so the interaction can be tested safely on Vercel without putting live business data into a public static preview. They do not publish the public website or alter the canonical source files. Production activation requires authenticated durable storage, file storage, record-level authorization, revision history, approval and publishing services. The interface states this boundary at the point of use.
+
+**Visual correction:** Core now uses Flaxx gray, lavender and white. The yellow-beige cast was removed. Content density, compact tables and secondary navigation were increased while retaining Aeonik and the existing Flaxx card language.
+
 ---
 
 ## How to deploy
