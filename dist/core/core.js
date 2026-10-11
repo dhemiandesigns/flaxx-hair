@@ -2,6 +2,53 @@ const role=document.querySelector('#role');
 const status=document.querySelector('#status');
 let activeChannel=null;
 
+const previewModules=[
+  ['catalogue','Products & catalogue','Products, variants, specifications, media, care, prices and lifecycle.'],
+  ['source','Source & relationships','Suppliers, rights, contracts, obligations, conflicts and exit.'],
+  ['quality','Evidence & release','Samples, claims, batches, inspections, quarantine and governed release.'],
+  ['inventory','Inventory & fulfilment','Custody, units, batch traceability, branded packout, shipment and returns.'],
+  ['content','Garden content','Pages, navigation, product media, approved wording and content expiry.'],
+  ['campaigns','Market & demand','Campaigns, approved offers, acquisition limits and actual-demand signals.'],
+  ['community','Flaxx Garden community','Waitlist, membership, participation, community offers and relevant payment status.'],
+  ['customers','Customers & consent','Purpose-limited identity, consent, preferences, access and deletion.'],
+  ['orders','Orders & service','Cart, order, payment status, fulfilment, questions, mismatch and remedy.'],
+  ['finance','Finance & River','Accounts, obligations, reserves, economics and four-head allocation.'],
+  ['people','People & access','Person-forms, appointments, departments, permissions, handover and exit.'],
+  ['work','Work & follow-up','Tasks, ownership, dependencies, updates, notifications and review.'],
+  ['chat','Team communication','Department and cross-functional channels with retained accountability.'],
+  ['decisions','Decisions & signals','Authority, stops, thresholds, exceptions and response.'],
+  ['systems','Systems & recovery','Integrations, access, audit, backups, incidents and recovery evidence.']
+].map(([id,name,description])=>({id,name,description}));
+const previewRoles={
+  creator:['Creator',['Creator & Leadership'],previewModules.map(item=>item.id)],
+  'managing-steward':['First Operator',['Creator & Leadership','Operations'],['catalogue','source','quality','inventory','content','campaigns','community','customers','orders','finance','people','work','chat','decisions']],
+  'market-brand':['Market & Brand Operator',['Market & Brand'],['catalogue','content','campaigns','community','customers','orders','work','chat','decisions']],
+  'product-quality':['Product & Quality',['Product & Quality'],['catalogue','source','quality','inventory','work','chat','decisions']],
+  compliance:['Operations & Compliance',['Compliance'],['source','quality','inventory','content','customers','orders','people','work','chat','decisions','systems']],
+  finance:['Finance',['Finance'],['catalogue','orders','finance','work','chat','decisions']],
+  'customer-operations':['Customer Operations',['Customer Care'],['catalogue','inventory','customers','orders','work','chat','decisions']],
+  community:['Community Manager',['Flaxx Garden Community'],['catalogue','content','campaigns','community','customers','orders','work','chat','decisions']],
+  fulfilment:['Inventory & Fulfilment',['Inventory & Fulfilment'],['catalogue','quality','inventory','orders','work','chat','decisions']],
+  systems:['Systems',['Systems'],['people','work','chat','decisions','systems']]
+};
+
+function previewDashboard(){
+  const [name,departments,moduleIds]=previewRoles[role.value]||previewRoles.systems;
+  return {
+    preview:true,
+    roles:[{id:role.value,name}],
+    departments:departments.map((department,index)=>({id:`preview-${index}`,name:department})),
+    modules:previewModules.filter(module=>moduleIds.includes(module.id)),
+    entity:{commerceEnabled:false,reasonCommerceBlocked:'Live UI preview only. Production identity, database and operating integrations are not connected.'},
+    gates:[
+      {id:'gate-commerce',name:'Controlled commerce pilot',state:'blocked',requirements:['legalEntity','bankAndPayoutTest','releasedSku','sellableInventory','approvedTerms','paymentTaxShipping','supportRemedy','securityPrivacyAccessibility','endToEndTest']},
+      {id:'gate-f4',name:'F4 whole-Garden completion',state:'open',requirements:['publicGarden','operatorOffice','workplace','threeLayers','operatingRoot','wholeGardenTest']}
+    ],
+    metrics:[{id:'preview',label:'Live operational records',value:0},{id:'commerce',label:'Commerce state',value:'Blocked'}],
+    tasks:[],channels:[]
+  };
+}
+
 const titleCase=value=>String(value||'').replace(/([a-z])([A-Z])/g,'$1 $2').replace(/[-_]/g,' ').replace(/\b\w/g,letter=>letter.toUpperCase());
 const request=async(path,options={})=>{
   const response=await fetch(path,{...options,headers:{'Content-Type':'application/json','X-Flaxx-Role':role.value,...(options.headers||{})}});
@@ -30,7 +77,11 @@ async function load(){
   activeChannel=null;
   document.querySelector('#conversation').hidden=true;
   try{renderDashboard(await request('/api/core/dashboard'));}
-  catch(error){status.textContent=error.message;document.querySelector('#metrics').innerHTML='';}
+  catch(error){
+    const data=previewDashboard();
+    renderDashboard(data);
+    status.textContent='Live UI preview. No customer, employee, payment or operational data is connected.';
+  }
 }
 
 async function openChannel(id){

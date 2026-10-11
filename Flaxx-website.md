@@ -197,6 +197,14 @@ The site is a single-page app. Views are shown/hidden by adding/removing the `ac
 
 **Still required:** Production authentication/MFA, database, object storage, backup/recovery, privacy/security review and approved integrations. The current prototype must not store live customer, payment or employee data. Existing unrelated frontend edits in `app.js` and `refinements.css` were preserved.
 
+### 10 October 2026 — Vercel Core preview route
+
+**Changed:** Added repository-controlled Vercel output configuration so the mirrored `dist/` site—including `/core/`—is deployed from every push to `main`. Added a safe Core preview state for hosted environments where the governed API is not connected.
+
+**Why:** Core needs a stable browser-viewable prototype shared through GitHub and Vercel, while live operational data must remain blocked until managed identity, durable storage and security controls are formed.
+
+**Verified boundary:** The hosted fallback contains no customer, employee, payment or operating records and clearly identifies commerce and live data as blocked. Local Formation mode continues to use the governed API.
+
 ---
 
 ## How to deploy
