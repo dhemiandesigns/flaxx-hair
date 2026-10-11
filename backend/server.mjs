@@ -99,21 +99,21 @@ function publicProducts(data) {
 }
 
 const coreModules = [
-  {id:'catalogue',name:'Products & catalogue',description:'Products, variants, specifications, media, care, prices and lifecycle.',permissions:['catalogue:read']},
-  {id:'source',name:'Source & relationships',description:'Suppliers, rights, contracts, obligations, conflicts and exit.',permissions:['source:read']},
-  {id:'quality',name:'Evidence & release',description:'Samples, claims, batches, inspections, quarantine and governed release.',permissions:['quality:read','evidence:read','release:read']},
-  {id:'inventory',name:'Inventory & fulfilment',description:'Custody, units, batch traceability, branded packout, shipment and returns.',permissions:['inventory:read','fulfilment:read']},
-  {id:'content',name:'Garden content',description:'Pages, navigation, product media, approved wording and content expiry.',permissions:['content:read']},
-  {id:'campaigns',name:'Market & demand',description:'Campaigns, approved offers, acquisition limits and actual-demand signals.',permissions:['campaign:read','demand:read']},
-  {id:'community',name:'Flaxx Garden community',description:'Waitlist, membership, participation, community offers and relevant payment status.',permissions:['community:read']},
-  {id:'customers',name:'Customers & consent',description:'Purpose-limited identity, consent, preferences, access and deletion.',permissions:['customer:read']},
-  {id:'orders',name:'Orders & service',description:'Cart, order, payment status, fulfilment, questions, mismatch and remedy.',permissions:['order:read','case:read']},
-  {id:'finance',name:'Finance & River',description:'Accounts, obligations, reserves, economics and four-head allocation.',permissions:['finance:read']},
-  {id:'people',name:'People & access',description:'Person-forms, appointments, departments, permissions, handover and exit.',permissions:['people:read','access:read']},
-  {id:'work',name:'Work & follow-up',description:'Tasks, ownership, dependencies, updates, notifications and review.',permissions:['task:read']},
-  {id:'chat',name:'Team communication',description:'Department and cross-functional channels with retained accountability.',permissions:['chat:read']},
-  {id:'decisions',name:'Decisions & signals',description:'Authority, stops, thresholds, exceptions and response.',permissions:['decision:read','signal:read']},
-  {id:'systems',name:'Systems & recovery',description:'Integrations, access, audit, backups, incidents and recovery evidence.',permissions:['system:read','audit:read']}
+  {id:'catalogue',name:'Products & Catalogue',description:'Manage products, options, product information, media and prices.',permissions:['catalogue:read']},
+  {id:'source',name:'Suppliers & Contracts',description:'Keep supplier details, quotations, agreements and follow-ups together.',permissions:['source:read']},
+  {id:'quality',name:'Quality & Verification',description:'Review samples, record checks and approve batches before sale.',permissions:['quality:read','evidence:read','release:read']},
+  {id:'inventory',name:'Inventory & Fulfilment',description:'Track stock, batches, packaging, shipments and returns.',permissions:['inventory:read','fulfilment:read']},
+  {id:'content',name:'Website & Content',description:'Manage pages, product content, images and approved wording.',permissions:['content:read']},
+  {id:'campaigns',name:'Marketing & Demand',description:'Plan campaigns, monitor spending and record what customers want.',permissions:['campaign:read','demand:read']},
+  {id:'community',name:'Community',description:'Manage membership, participation, offers and member support.',permissions:['community:read']},
+  {id:'customers',name:'Customers',description:'Manage customer details, preferences, consent and requests.',permissions:['customer:read']},
+  {id:'orders',name:'Orders & Service',description:'Follow orders, payments, delivery, questions and remedies.',permissions:['order:read','case:read']},
+  {id:'finance',name:'Finance',description:'Track payments, costs, reserves, budgets and allocations.',permissions:['finance:read']},
+  {id:'people',name:'Team & Access',description:'Manage team records, responsibilities, access and handovers.',permissions:['people:read','access:read']},
+  {id:'work',name:'Dashboard',description:'See assigned work, priorities, dependencies, updates and follow-up.',permissions:['task:read']},
+  {id:'chat',name:'Messages',description:'Share updates with the right people and keep decisions easy to find.',permissions:['chat:read']},
+  {id:'decisions',name:'Decisions & Reports',description:'Record approvals, exceptions, risks and important results.',permissions:['decision:read','signal:read']},
+  {id:'systems',name:'Systems & Recovery',description:'Monitor integrations, security, backups and incidents.',permissions:['system:read','audit:read']}
 ];
 
 function actorContext(actor, data) {

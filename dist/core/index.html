@@ -4,21 +4,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <title>Flaxx Core — Formation prototype</title>
+  <title>Flaxx Core</title>
   <link rel="stylesheet" href="/refinements.css">
   <link rel="stylesheet" href="/core/core.css">
+  <link rel="stylesheet" href="/core/visibility.css">
 </head>
 <body>
   <header class="topbar">
     <a href="/#home" aria-label="Return to Flaxx"><img src="/assets/flaxx-logo.svg" alt="Flaxx Hair"></a>
-    <div class="core-name"><strong>Core</strong><span>Formation prototype</span></div>
+    <div class="core-name"><strong>Core</strong><span id="page-label">Dashboard</span></div>
     <button id="refresh" class="quiet-button">Refresh</button>
   </header>
+
   <div class="shell">
     <aside class="sidebar">
-      <p class="eyebrow">Private workspace</p>
-      <h1>One truth.<br>Only what you need.</h1>
-      <label class="role-label">Review as
+      <p class="eyebrow">Flaxx Core</p>
+      <h1>Welcome<br>back.</h1>
+      <label class="role-label">Preview role
         <select id="role">
           <option value="managing-steward">First Operator</option>
           <option value="market-brand">Market & Brand Operator</option>
@@ -32,45 +34,49 @@
           <option value="creator">Creator</option>
         </select>
       </label>
-      <p class="scope-note">This selector exists only for local Formation review. A role is not an appointment, and an open gate is not permission.</p>
-      <nav id="module-nav" aria-label="Available modules"></nav>
+      <nav id="primary-nav" aria-label="Core navigation"></nav>
     </aside>
 
-    <main>
-      <section class="welcome">
-        <div>
-          <p class="eyebrow" id="department-label">Loading role</p>
-          <h2 id="welcome-title">Your work, clearly held.</h2>
-        </div>
-        <p class="status" id="status" role="status">Connecting to Core…</p>
-      </section>
+    <main id="app" tabindex="-1">
+      <section id="dashboard-view">
+        <section class="welcome">
+          <div><p class="eyebrow">Dashboard</p><h2>Work & follow-up</h2></div>
+          <div class="welcome-side"><strong id="current-role">First Operator</strong><p class="status" id="status" role="status">Loading your dashboard…</p></div>
+        </section>
 
-      <section class="metric-grid" id="metrics" aria-label="Role metrics"></section>
+        <section class="metric-grid" id="metrics" aria-label="Key information"></section>
 
-      <section class="panel-grid">
-        <article class="panel work-panel">
-          <header><div><p class="eyebrow">Own and follow through</p><h2>Work</h2></div><span id="work-count"></span></header>
+        <section class="panel" id="work-panel" hidden>
+          <header><div><p class="eyebrow">Next actions</p><h2>Work</h2></div><span id="work-count"></span></header>
           <div id="tasks" class="task-list"></div>
-        </article>
-        <article class="panel chat-panel">
-          <header><div><p class="eyebrow">Shared where required</p><h2>Channels</h2></div></header>
+        </section>
+
+        <section class="section-block dashboard-section">
+          <div class="section-heading">
+            <div><p class="eyebrow">At a glance</p><h2>Dashboards</h2></div>
+            <div class="heading-actions"><span id="dashboard-role"></span><button id="arrange" class="text-button">Arrange</button></div>
+          </div>
+          <p class="arrange-note" id="arrange-note" hidden>Use the arrows to put the information you rely on most at the top. Your order is saved on this device.</p>
+          <div class="module-grid" id="modules"></div>
+        </section>
+
+        <section class="section-block">
+          <div class="section-heading"><div><p class="eyebrow">Before launch</p><h2>Launch readiness</h2></div></div>
+          <div class="gate-grid" id="gates"></div>
+        </section>
+
+        <section class="panel channels-panel" id="channels-panel" hidden>
+          <header><div><p class="eyebrow">Team updates</p><h2>Messages</h2></div></header>
           <div id="channels" class="channel-list"></div>
           <section id="conversation" class="conversation" hidden>
             <div id="messages" class="messages"></div>
-            <form id="message-form"><input id="message-input" aria-label="Message" placeholder="Write a clear update"><button>Send</button></form>
+            <form id="message-form"><input id="message-input" aria-label="Message" placeholder="Write an update"><button>Send</button></form>
           </section>
-        </article>
+        </section>
       </section>
 
-      <section class="section-block">
-        <div class="section-heading"><div><p class="eyebrow">Your permitted view</p><h2>Workspace</h2></div><p>Modules appear because the role needs them—not because every employee should see everything.</p></div>
-        <div class="module-grid" id="modules"></div>
-      </section>
-
-      <section class="section-block">
-        <div class="section-heading"><div><p class="eyebrow">Formation boundaries</p><h2>Gates</h2></div><p>A gate shows what remains true. It does not create authority.</p></div>
-        <div class="gate-grid" id="gates"></div>
-      </section>
+      <section id="workspace-view" hidden></section>
+      <section id="guide-view" hidden></section>
     </main>
   </div>
   <script src="/core/core.js"></script>

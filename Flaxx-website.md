@@ -207,6 +207,16 @@ The site is a single-page app. Views are shown/hidden by adding/removing the `ac
 
 **Deployment-path correction:** Core assets use root-relative `/core/` and `/assets/` addresses so Vercel clean URLs render the same interface at both `/core` and `/core/`.
 
+### 10 October 2026 — Core dashboard and business-language pass
+
+**Changed:** Reframed Core as a normal business workspace. `Work & follow-up` is now the role dashboard rather than a separate workspace. Each role receives a practical default order for its most relevant areas, with an optional **Arrange** control that saves a personal order on that device. Empty work and message panels remain hidden. Every visible area now opens into a dedicated workspace shell, and **My guide** provides a short role-specific operating manual.
+
+**Language rule:** Everyday screens use ordinary business terms such as Products, Suppliers, Quality, Inventory, Marketing, Customers, Orders and Finance. Framework terms remain in the underlying Formation records and control logic where they provide authority, but they are not used as routine interface labels. Access remains enforced underneath without explanatory permission language being placed in front of employees.
+
+**Dashboard rule:** Defaults are set by role so a new team member sees the right priorities without configuration. Personal ordering is deliberately limited to rearranging existing dashboard areas; it does not change access, authority, source records or operating controls. Each card gives a concise summary and a path to the full workspace.
+
+**Current depth:** Dashboard routing, role ordering, workspace shells and role guides are implemented. Workspace action buttons remain inactive until the corresponding operating screen and durable data connection are built. No live business record is implied by the visual shell.
+
 ---
 
 ## How to deploy
