@@ -12,7 +12,20 @@ export class JsonStore {
   async init() {
     await mkdir(dirname(this.path), { recursive: true });
     try {
-      await readFile(this.path, 'utf8');
+      const current = JSON.parse(await readFile(this.path, 'utf8'));
+      const seed = JSON.parse(await readFile(this.seedPath, 'utf8'));
+      if (Number(current.meta?.schemaVersion || 0) < Number(seed.meta?.schemaVersion || 0)) {
+        const merged = { ...seed, ...current, meta:{ ...seed.meta, ...current.meta, schemaVersion:seed.meta.schemaVersion } };
+        for (const [key, value] of Object.entries(seed)) {
+          if (!(key in current)) merged[key] = value;
+        }
+        for (const key of ['roles','departments','dashboards','tasks','channels','gates','principles']) {
+          const currentById = new Map((current[key] || []).map(item => [item.id, item]));
+          merged[key] = (seed[key] || []).map(item => currentById.has(item.id) && key !== 'roles' ? { ...item, ...currentById.get(item.id) } : item);
+          for (const item of current[key] || []) if (!merged[key].some(existing => existing.id === item.id)) merged[key].push(item);
+        }
+        await this.persist(merged);
+      }
     } catch {
       const seed = JSON.parse(await readFile(this.seedPath, 'utf8'));
       await this.persist(seed);

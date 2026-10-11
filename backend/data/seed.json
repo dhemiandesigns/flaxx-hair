@@ -1,6 +1,6 @@
 {
   "meta": {
-    "schemaVersion": 1,
+    "schemaVersion": 2,
     "environment": "formation-prototype",
     "entity": "Flaxx",
     "legalName": "Flaxx Beauty Inc. (intended; not represented as completed)",
@@ -24,23 +24,53 @@
     {"id":"FH-P12","name":"Quality mark inseparable from the standard","rule":"No mark use may be separated from FH-P1 through FH-P4 evidence and accountability."}
   ],
   "roles": [
-    {"id":"creator","name":"Creator","permissions":["reserved:decide","mark:approve","office:read","audit:read"]},
-    {"id":"managing-steward","name":"Managing Steward","permissions":["office:read","office:write","release:propose","decision:propose"]},
-    {"id":"product-quality","name":"Product & Quality","permissions":["office:read","evidence:write","inspection:write","release:confirm","claim:technical","mark:quality"]},
-    {"id":"compliance","name":"Operations & Compliance","permissions":["office:read","office:write","compliance:stop","compliance:resolve","claim:compliance","mark:compliance"]},
-    {"id":"finance","name":"Finance","permissions":["office:read","finance:write","economics:confirm"]},
-    {"id":"customer-operations","name":"Customer Operations","permissions":["office:read","case:write","remedy:execute","order:read"]},
-    {"id":"systems","name":"Systems","permissions":["office:read","system:operate","audit:read"]}
+    {"id":"creator","name":"Creator","departmentIds":["leadership"],"permissions":["core:read","office:read","scope:entity","reserved:decide","mark:approve","principle:read","people:read","access:read","catalogue:read","pricing:read","source:read","contract:read","evidence:read","claim:read","quality:read","batch:read","release:read","inventory:read","fulfilment:read","content:read","mark:read","promotion:read","campaign:read","demand:read","customer:read","consent:read","community:read","review:read","order:read","payment:read","refund:read","case:read","remedy:read","finance:read","decision:read","stop:read","incident:read","document:read","task:read","chat:read","notification:read","system:read","gate:read","signal:read","audit:read"]},
+    {"id":"managing-steward","name":"First Operator","departmentIds":["operations","leadership"],"permissions":["core:read","office:read","scope:entity","people:read","access:read","catalogue:read","catalogue:write","pricing:read","pricing:write","source:read","source:write","contract:read","contract:write","evidence:read","claim:read","quality:read","batch:read","batch:write","release:read","release:propose","inventory:read","inventory:write","fulfilment:read","content:read","mark:read","promotion:read","promotion:propose","promotion:approve","campaign:read","demand:read","customer:read","consent:read","community:read","review:read","order:read","order:write","payment:read","refund:read","refund:write","case:read","case:write","remedy:read","finance:read","decision:read","decision:propose","stop:read","incident:read","incident:write","document:read","document:write","task:read","task:write","chat:read","chat:write","notification:read","notification:write","gate:read","signal:read","signal:write"]},
+    {"id":"market-brand","name":"Market & Brand Operator","departmentIds":["market-brand"],"permissions":["core:read","office:read","catalogue:read","pricing:read","claim:read","release:read","inventory:read","content:read","content:write","mark:read","promotion:read","campaign:read","campaign:write","demand:read","demand:write","customer:read","consent:read","community:read","community:write","review:read","order:read","case:read","document:read","document:write","task:read","task:write","chat:read","chat:write","notification:read","notification:write","signal:read","signal:write"]},
+    {"id":"product-quality","name":"Product & Quality","departmentIds":["product-quality"],"permissions":["core:read","office:read","catalogue:read","catalogue:write","source:read","evidence:read","evidence:write","claim:read","claim:technical","quality:read","quality:write","batch:read","inspection:write","release:read","release:confirm","inventory:read","mark:read","mark:quality","case:read","incident:read","incident:write","document:read","document:write","task:read","task:write","chat:read","chat:write","notification:read","signal:read","signal:write"]},
+    {"id":"compliance","name":"Operations & Compliance","departmentIds":["compliance"],"permissions":["core:read","office:read","access:read","catalogue:read","source:read","contract:read","evidence:read","claim:read","claim:compliance","quality:read","batch:read","release:read","inventory:read","fulfilment:read","content:read","mark:read","mark:compliance","customer:read","consent:read","order:read","payment:read","refund:read","case:read","remedy:read","decision:read","stop:read","compliance:stop","compliance:resolve","incident:read","incident:write","document:read","document:write","task:read","task:write","chat:read","chat:write","notification:read","gate:read","gate:write","signal:read","audit:read"]},
+    {"id":"finance","name":"Finance","departmentIds":["finance"],"permissions":["core:read","office:read","pricing:read","contract:read","inventory:read","order:read","payment:read","payment:write","refund:read","finance:read","finance:write","economics:confirm","decision:read","document:read","document:write","task:read","task:write","chat:read","chat:write","notification:read","gate:read","signal:read","signal:write","audit:read"]},
+    {"id":"customer-operations","name":"Customer Operations","departmentIds":["customer-care"],"permissions":["core:read","office:read","catalogue:read","pricing:read","claim:read","release:read","inventory:read","fulfilment:read","promotion:read","customer:read","customer:write","consent:read","consent:write","community:read","review:read","order:read","case:read","case:write","remedy:read","remedy:execute","refund:read","document:read","task:read","task:write","chat:read","chat:write","notification:read","notification:write","signal:read","signal:write"]},
+    {"id":"community","name":"Community Manager","departmentIds":["community"],"permissions":["core:read","office:read","catalogue:read","pricing:read","content:read","content:write","promotion:read","campaign:read","campaign:write","demand:read","demand:write","customer:read","consent:read","community:read","community:write","review:read","review:moderate","order:read","case:read","document:read","task:read","task:write","chat:read","chat:write","notification:read","notification:write","signal:read","signal:write"]},
+    {"id":"fulfilment","name":"Inventory & Fulfilment","departmentIds":["fulfilment"],"permissions":["core:read","office:read","catalogue:read","batch:read","release:read","inventory:read","inventory:write","fulfilment:read","fulfilment:write","order:read","customer:read","case:read","incident:read","incident:write","document:read","task:read","task:write","chat:read","chat:write","notification:read","signal:read","signal:write"]},
+    {"id":"systems","name":"Systems","departmentIds":["systems"],"permissions":["core:read","office:read","access:read","access:admin","people:read","system:read","system:operate","document:read","task:read","task:write","chat:read","chat:write","chat:admin","notification:read","notification:write","gate:read","signal:read","audit:read"]}
   ],
   "actors": [
     {"id":"demilade","name":"Demilade","roleIds":["creator"],"active":true},
     {"id":"formation-system","name":"Formation prototype system","roleIds":["systems"],"active":true}
+  ],
+  "departments": [
+    {"id":"leadership","name":"Creator & Leadership","purpose":"Reserved direction, interpretation and entity stewardship."},
+    {"id":"operations","name":"Operations","purpose":"Verified reality, source, product, process, sale closure and controlled delivery."},
+    {"id":"market-brand","name":"Market & Brand","purpose":"Demand, expression, marketing, customer nurture and market intelligence."},
+    {"id":"product-quality","name":"Product & Quality","purpose":"Specifications, evidence, inspection and independent release confirmation."},
+    {"id":"compliance","name":"Compliance","purpose":"Boundaries, lawful operation, claims, stops and corrective action."},
+    {"id":"finance","name":"Finance","purpose":"Accounts, obligations, economics, River and reconciliation."},
+    {"id":"customer-care","name":"Customer Care","purpose":"Orders, questions, mismatches, remedies and service learning."},
+    {"id":"community","name":"Flaxx Garden Community","purpose":"Membership, participation, testing, advocacy and community-linked value."},
+    {"id":"fulfilment","name":"Inventory & Fulfilment","purpose":"Custody, packout, shipment, returns and recall traceability."},
+    {"id":"systems","name":"Systems","purpose":"Availability, access, integrations, audit, recovery and security."}
+  ],
+  "teams": [],
+  "appointments": [],
+  "accessGrants": [],
+  "dashboards": [
+    {"id":"dashboard-operations","departmentId":"operations","name":"First Operator","moduleIds":["catalogue","source","quality","inventory","orders","cases","finance-summary","tasks","chat","signals"]},
+    {"id":"dashboard-market","departmentId":"market-brand","name":"Market & Brand","moduleIds":["content","campaigns","demand","community","catalogue-summary","order-summary","tasks","chat","signals"]},
+    {"id":"dashboard-quality","departmentId":"product-quality","name":"Product & Quality","moduleIds":["specifications","evidence","batches","inspections","releases","tasks","chat","signals"]},
+    {"id":"dashboard-finance","departmentId":"finance","name":"Finance","moduleIds":["orders","payments","refunds","accounts","river","economics","tasks","chat","signals"]},
+    {"id":"dashboard-community","departmentId":"community","name":"Community","moduleIds":["members","member-payment-status","community-offers","content","campaigns","reviews","tasks","chat","signals"]}
   ],
   "products": [
     {"id":"product-body-wave","name":"The Body Wave","state":"concept","public":false,"specificationId":null,"currentSkuIds":[],"allowedClaimIds":[],"limitations":["Concept only; no product has been released."],"createdAt":"2026-10-07T00:00:00.000Z"}
   ],
   "skus": [],
   "specifications": [],
+  "prices": [],
+  "productMedia": [],
+  "merchandisingCollections": [],
+  "fitProfiles": [],
+  "fitRecommendations": [],
   "suppliers": [],
   "relationships": [],
   "contracts": [],
@@ -51,11 +81,24 @@
   "inspections": [],
   "releases": [],
   "inventory": [],
+  "packEvents": [],
   "content": [],
+  "pages": [],
+  "navigation": [],
   "markUses": [],
+  "promotions": [],
+  "campaigns": [],
+  "demandSignals": [],
   "customers": [],
   "consents": [],
+  "favourites": [],
+  "carts": [],
+  "waitlists": [],
+  "communityMemberships": [],
+  "reviews": [],
   "orders": [],
+  "payments": [],
+  "refunds": [],
   "shipments": [],
   "cases": [],
   "remedies": [],
@@ -67,7 +110,21 @@
   "incidents": [],
   "correctiveActions": [],
   "documents": [],
-  "tasks": [],
+  "tasks": [
+    {"id":"task-entity-gate","title":"Complete entity and receiving gate","state":"blocked","priority":"high","departmentIds":["leadership","operations"],"assignedRoleIds":["creator","managing-steward"],"formationStage":"F1","dueAt":null,"blockedBy":["name approval","incorporation","entity bank account"],"visibility":{"departmentIds":["leadership","operations"]}},
+    {"id":"task-supplier-quotes","title":"Receive and reconcile supplier quotations","state":"in-progress","priority":"high","departmentIds":["operations","product-quality"],"assignedRoleIds":["managing-steward","product-quality"],"formationStage":"F4","dueAt":null,"blockedBy":[],"visibility":{"departmentIds":["operations","product-quality"]}},
+    {"id":"task-commerce-simulation","title":"Run controlled commerce simulation","state":"blocked","priority":"high","departmentIds":["operations","finance","customer-care","fulfilment","systems"],"assignedRoleIds":["managing-steward"],"formationStage":"F4-F7","dueAt":null,"blockedBy":["released SKU","payment path","fulfilment route","approved customer terms"],"visibility":{"departmentIds":["operations","finance","customer-care","fulfilment","systems"]}}
+  ],
+  "taskUpdates": [],
+  "channels": [
+    {"id":"channel-operations","name":"Operations","departmentIds":["operations","product-quality","compliance","finance","fulfilment"],"purpose":"Cross-functional work needed to form and keep verified reality.","visibility":{"departmentIds":["operations","product-quality","compliance","finance","fulfilment"]}},
+    {"id":"channel-market","name":"Market & Customer","departmentIds":["market-brand","community","customer-care","operations"],"purpose":"Demand, customer questions, approved allowances and service learning.","visibility":{"departmentIds":["market-brand","community","customer-care","operations"]}},
+    {"id":"channel-incidents","name":"Incidents & Stops","departmentIds":["operations","product-quality","compliance","systems"],"purpose":"Containment, evidence, correction and recovery.","visibility":{"departmentIds":["operations","product-quality","compliance","systems"]}}
+  ],
+  "channelMembers": [],
+  "messages": [],
+  "notifications": [],
+  "integrations": [],
   "gates": [
     {"id":"gate-commerce","name":"Controlled commerce pilot","state":"blocked","requirements":["legalEntity","bankAndPayoutTest","releasedSku","sellableInventory","approvedTerms","paymentTaxShipping","supportRemedy","securityPrivacyAccessibility","endToEndTest"],"evidenceIds":[]},
     {"id":"gate-f4","name":"F4 whole-Garden completion","state":"open","requirements":["publicGarden","operatorOffice","workplace","threeLayers","operatingRoot","wholeGardenTest"],"evidenceIds":[]}

@@ -12,10 +12,12 @@ const releaseRequirements = [
 ];
 
 export const collections = new Set([
-  'products','skus','specifications','suppliers','relationships','contracts','evidence','claims','samples','batches',
-  'inspections','releases','inventory','content','markUses','customers','consents','orders','shipments','cases',
-  'remedies','transactions','accountEntries','riverAllocations','decisions','stops','incidents','correctiveActions',
-  'documents','tasks','gates','signals'
+  'departments','teams','appointments','accessGrants','dashboards',
+  'products','skus','specifications','prices','productMedia','merchandisingCollections','fitProfiles','fitRecommendations','suppliers','relationships','contracts','evidence','claims','samples','batches',
+  'inspections','releases','inventory','packEvents','content','pages','navigation','markUses','promotions','campaigns','demandSignals',
+  'customers','consents','favourites','carts','waitlists','communityMemberships','reviews','orders','payments','refunds','shipments','cases',
+  'remedies','transactions','accountEntries','riverAllocations','decisions','stops','incidents','correctiveActions','documents','tasks',
+  'taskUpdates','channels','channelMembers','messages','notifications','integrations','gates','signals'
 ]);
 
 export function permissionsFor(actor, data) {
@@ -25,7 +27,7 @@ export function permissionsFor(actor, data) {
 
 export function requirePermission(actor, data, permission) {
   const permissions = permissionsFor(actor, data);
-  if (!permissions.has(permission)) throw problem(403, 'permission_denied', `The ${permission} permission is required.`);
+  if (!permissions.has(permission) && !permissions.has('*')) throw problem(403, 'permission_denied', `The ${permission} permission is required.`);
 }
 
 export function unresolvedStops(data, scopeIds = []) {
@@ -73,6 +75,19 @@ export function evaluateOwnership(candidate) {
     pass: Number.isFinite(creatorPercent) && creatorPercent >= 51,
     missing: Number.isFinite(creatorPercent) && creatorPercent >= 51 ? [] : ['creatorOwnershipAtLeast51Percent']
   };
+}
+
+export function evaluatePromotion(candidate) {
+  const missing = [];
+  if (!candidate.productId && !candidate.collectionId) missing.push('productOrCollectionScope');
+  if (!candidate.economicsEvidenceId) missing.push('economicsEvidence');
+  if (!candidate.capacitySignalId) missing.push('capacitySignal');
+  if (!candidate.startsAt || !candidate.endsAt) missing.push('activeWindow');
+  if (!candidate.approvals?.managingSteward) missing.push('firstOperatorApproval');
+  const discount = Number(candidate.discountPercent || 0);
+  const ceiling = Number(candidate.approvedCeilingPercent);
+  if (!Number.isFinite(ceiling) || discount > ceiling) missing.push('withinApprovedEconomicCeiling');
+  return { pass:missing.length === 0, missing:[...new Set(missing)] };
 }
 
 export function problem(status, code, message, details = {}) {

@@ -16,7 +16,7 @@ The GitHub repository is the shared remote copy. Work must not remain only in a 
 
 Static HTML/CSS/JS website for **Flaxx Beauty Inc.** — a hair brand within the KRST (Kingdom Resource Stewardship) business ecosystem, founded by Demilade Adeniyi.
 
-The website is a **product prototype** built to demonstrate the brand experience, the transparency/verification model, and the product catalogue ahead of launch. It is not yet connected to a live commerce backend.
+The website is a **product prototype** built to demonstrate the brand experience, the transparency/verification model, and the product catalogue ahead of launch. A private **Flaxx Core** Formation prototype now exists beside it, but public commerce and live customer processing remain blocked.
 
 **Authoritative visual reference at the 8 October 2026 reconciliation:** `https://flaxx-hair-garden-draft.demidhemian.chatgpt.site/#home`
 **GitHub repo:** `github.com/dhemiandesigns/flaxx-hair`
@@ -44,11 +44,13 @@ website-draft/
 │   ├── index.html
 │   ├── app.js
 │   ├── styles.css
-│   └── refinements.css
+│   ├── refinements.css
+│   └── core/           — private role-scoped Core interface
+├── backend/            — governed JSON API, policy checks, tests and prototype storage
 └── Flaxx-website.md    — mandatory continuity record
 ```
 
-**Important:** The root website files and `dist/` must always mirror one another. Do not edit or deploy only one copy. The 8 October 2026 reconciliation restored both copies from the exact ChatGPT-hosted visual reference above.
+**Important:** The root public website files and `dist/` must always mirror one another. Do not edit or deploy only one public copy. Core's deployable interface is presently under `dist/core/`; its governed service is under `backend/`.
 
 ---
 
@@ -153,7 +155,7 @@ The site is a single-page app. Views are shown/hidden by adding/removing the `ac
 
 ---
 
-## What has been built (as of October 2026)
+## What has been built (as of 10 October 2026)
 
 - Full single-page site with all views
 - Product grid with 4 products
@@ -165,12 +167,18 @@ The site is a single-page app. Views are shown/hidden by adding/removing the `ac
 - Dark mode toggle
 - Mobile-responsive layout
 - `Flaxx-website.md` continuity record (this file)
+- Flaxx Core role-specific Formation interface at `/core/`
+- Governed backend collections corresponding to every present public Garden function: catalogue, media, pricing, verification, fit, favourites, cart, waitlist, community, reviews, orders, payments, refunds, fulfilment, support and remedy
+- Departmental access for the Creator, First Operator, Market & Brand Operator, Product & Quality, Compliance, Finance, Customer Operations, Community, Fulfilment and Systems
+- Role-scoped work queues, status follow-up, departmental/cross-functional channels and auditable messages
+- First Operator approval gate for promotions, bounded by recorded economics and capacity
+- Unit tests covering release, claims, FH-P10, FH-P12, promotion economics and departmental segregation
 
 ---
 
 ## What is not yet built / known gaps
 
-- [ ] Backend connection to Creator's Framework (commerce, orders, auth)
+- [ ] Production identity, database and integration replacement for the Formation backend prototype
 - [ ] Batch records for Maya Silk, Amara Curl, Elise Copper
 - [ ] Actual product images (current images are placeholder/prototype assets)
 - [ ] Checkout flow (UI shell exists in cart drawer but no payment integration)
@@ -178,6 +186,16 @@ The site is a single-page app. Views are shown/hidden by adding/removing the `ac
 - [ ] Flaxx Garden page — email capture form (UI exists, no backend)
 - [ ] Grade 2 disclosure UI (amber warning state) — defined in spec, not yet triggered
 - [ ] Production-ready governed commerce backend and persistent database
+
+### 10 October 2026 — Flaxx Core build
+
+**Changed:** Expanded the earlier Operator Office vertical slice into Flaxx Core. Added collection- and department-level authorization, role-specific dashboards, work status updates, scoped channels/messages, complete public-Garden record correspondence, fit and merchandising records, community-limited payment visibility, and a controlled promotion approval route. Added the responsive `/core/` interface and `backend/CORE-ARCHITECTURE.md`.
+
+**Why:** The Garden needs one governed backend now, while the same Core must later support departments and many employees without exposing unrelated records or creating a second source of truth.
+
+**Verified:** `npm test` passes 12 policy/access tests. Local endpoint checks confirmed Community receives its own dashboard and is denied entity transactions (403), while Finance can read transactions (200); `/core/` returns successfully. Public commerce remains blocked.
+
+**Still required:** Production authentication/MFA, database, object storage, backup/recovery, privacy/security review and approved integrations. The current prototype must not store live customer, payment or employee data. Existing unrelated frontend edits in `app.js` and `refinements.css` were preserved.
 
 ---
 

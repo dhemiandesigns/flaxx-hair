@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { evaluateClaim, evaluateMarkUse, evaluateOwnership, evaluateRelease } from '../core/policy.mjs';
+import { evaluateClaim, evaluateMarkUse, evaluateOwnership, evaluatePromotion, evaluateRelease } from '../core/policy.mjs';
 
 const base = { stops:[], evidence:[{id:'ev_1',state:'current'}] };
 
@@ -44,4 +44,11 @@ test('FH-P12 mark use requires creator, quality and compliance', () => {
 test('FH-P10 blocks ownership below 51 percent', () => {
   assert.equal(evaluateOwnership({creatorPercent:51}).pass, true);
   assert.equal(evaluateOwnership({creatorPercent:50.99}).pass, false);
+});
+
+test('a promotion needs First Operator approval and must remain inside confirmed economics', () => {
+  const promotion = { productId:'product_1', economicsEvidenceId:'economics_1', capacitySignalId:'signal_1', startsAt:'2026-10-10', endsAt:'2026-10-12', discountPercent:10, approvedCeilingPercent:12, approvals:{managingSteward:true} };
+  assert.equal(evaluatePromotion(promotion).pass, true);
+  promotion.discountPercent = 15;
+  assert.equal(evaluatePromotion(promotion).pass, false);
 });

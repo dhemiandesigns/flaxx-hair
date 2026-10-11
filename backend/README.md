@@ -1,6 +1,6 @@
-# Flaxx governed backend prototype
+# Flaxx Core — governed backend prototype
 
-This is the first F4 shared-core vertical slice. It serves the private website and a JSON API without third-party dependencies. It is a Formation prototype, not authorization for public commerce.
+This is the first F4 shared-core vertical slice for the Garden and the later Flaxx office. It serves the private website, the role-specific Core workspace, and a JSON API without third-party dependencies. It is a Formation prototype, not authorization for public commerce.
 
 ## What it enforces now
 
@@ -14,6 +14,11 @@ This is the first F4 shared-core vertical slice. It serves the private website a
 - public catalogue suppression while commerce is blocked;
 - compliance stops lifted only through resolution evidence;
 - atomic, exportable JSON persistence for this prototype.
+- collection-level and department-level access boundaries;
+- separate role views for the First Operator, Market and Brand Operator, Product and Quality, Compliance, Finance, Customer Operations, Community, Fulfilment and Systems;
+- role-scoped task ownership, follow-up history, notifications and internal channels;
+- backend records corresponding to catalogue, media, pricing, promotions, favourites, carts, waitlists, community, reviews, payments, refunds and pack events on the public Garden;
+- a narrow community financial view that exposes community-member payment status without exposing the entity's accounts.
 
 ## Run locally
 
@@ -23,7 +28,7 @@ Use Node 20 or later:
 FLAXX_DEV_MODE=1 npm start
 ```
 
-The application runs at `http://127.0.0.1:4174`. Development requests to Office routes require an `X-Flaxx-Role` header. Production-like use requires role-specific bearer tokens supplied only through environment variables; no credential belongs in source control.
+The application runs at `http://127.0.0.1:4174`. Open `http://127.0.0.1:4174/core/` for the private prototype. Development requests to Core routes require an `X-Flaxx-Role` header. Production-like use requires role-specific bearer tokens supplied only through environment variables; no credential belongs in source control.
 
 ## Still required before activation
 
