@@ -205,6 +205,8 @@ The site is a single-page app. Views are shown/hidden by adding/removing the `ac
 
 **Verified boundary:** The hosted fallback contains no customer, employee, payment or operating records and clearly identifies commerce and live data as blocked. Local Formation mode continues to use the governed API.
 
+**Deployment-path correction:** Core assets use root-relative `/core/` and `/assets/` addresses so Vercel clean URLs render the same interface at both `/core` and `/core/`.
+
 ---
 
 ## How to deploy
